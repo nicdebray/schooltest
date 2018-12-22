@@ -3,6 +3,12 @@
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
+// General style
+$font-family-sans-serif:  $body-font;
+$headings-font-family:    $headers-font;
+$font-size-base: 1.125rem;
+
+
 // Color system
 
 $white:    #fff !default;
