@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'teachers', to:'teachers#index'
+  get 'teachers/new'
+  get 'teachers/:id', to:'teachers#show', as: :teacher
+  post 'teachers', to:'teachers#create'
+  get 'teachers/:id/edit', to:'teachers#edit', as: :edit_teacher
+  patch 'teachers/:id', to:'teachers#update'
+  delete 'teachers/:id', to:'teachers#destroy'
+
   get 'students', to:'students#index'
   get 'students/new'
   get 'students/:id', to:'students#show', as: :student
