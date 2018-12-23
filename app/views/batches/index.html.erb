@@ -1,0 +1,10 @@
+<h1>Batches#index</h1>
+<p>Find me in app/views/batches/index.html.erb</p>
+<%= link_to "New Batch", batches_new_path %>
+<% @batches.each do |batch| %>
+  <ul>
+    <li><%= batch.name %></li>
+    <li><%= link_to "Delete", batch_path(batch), method: :delete %></li>
+    <li><%= link_to "Edit", edit_batch_path(batch) %></li>
+  </ul>
+<% end %>
