@@ -4,6 +4,7 @@
 <% @batches.each do |batch| %>
   <ul>
     <li><%= batch.name %></li>
+    <li><%= batch.id %></li>
     <li><%= link_to "Delete", batch_path(batch), method: :delete %></li>
     <li><%= link_to "Edit", edit_batch_path(batch) %></li>
   </ul>
