@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'evaluations', to:'evaluations#index'
+  get 'evaluations/new'
+  get 'evaluations/:id', to:'evaluations#show', as: :evaluation
+  post 'evaluations', to:'evaluations#create'
+  get 'evaluations/:id/edit', to:'evaluations#edit', as: :edit_evaluation
+  patch 'evaluations/:id', to:'evaluations#update'
+  delete 'evaluations/:id', to:'evaluations#destroy'
+
   get 'courses', to:'courses#index'
   get 'courses/new'
   get 'courses/:id', to:'courses#show', as: :course
