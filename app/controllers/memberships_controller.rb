@@ -1,5 +1,7 @@
 class MembershipsController < ApplicationController
   before_action :membership_find, only: [:edit, :update, :destroy]
+  before_action :set_student, only: [:index, :new, :edit]
+  before_action :set_course, only: [:index, :new, :edit]
 
   def index
     @memberships = Membership.all
@@ -44,6 +46,14 @@ class MembershipsController < ApplicationController
 
   def membership_params
     params.require(:membership).permit(:student_id, :course_id, :unique_membership_index)
+  end
+
+  def set_student
+    @student = Student.find_by(id: params[:student_id])
+  end
+
+  def set_course
+    @course = Course.find_by(id: params[:course_id])
   end
 
 end
