@@ -1,0 +1,13 @@
+<h1>Memberships#index</h1>
+<p>Find me in app/views/memberships.html.erb</p>
+<p><%= Membership.count %></p>
+<p><%= link_to "New membership", new_membership_path %></p>
+
+<%= @memberships.each do |membership| %>
+<ul>
+  <li><%= membership.id %></li>
+  <li><%= membership.student %></li>
+  <li><%= membership %></li>
+  <li><%= link_to "Delete", membership_path(membership), method: :delete %></li>
+</ul>
+<% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'memberships/new'
+  get 'memberships/create'
   get 'evaluations', to:'evaluations#index'
   get 'evaluations/new'
   get 'evaluations/:id', to:'evaluations#show', as: :evaluation
@@ -7,13 +9,15 @@ Rails.application.routes.draw do
   patch 'evaluations/:id', to:'evaluations#update'
   delete 'evaluations/:id', to:'evaluations#destroy'
 
-  get 'courses', to:'courses#index'
-  get 'courses/new'
-  get 'courses/:id', to:'courses#show', as: :course
-  post 'courses', to:'courses#create'
-  get 'courses/:id/edit', to:'courses#edit', as: :edit_course
-  patch 'courses/:id', to:'courses#update'
-  delete 'courses/:id', to:'courses#destroy'
+  resources :memberships
+  resources :courses do
+    resources :memberships, only: [:index, :show, :new]
+  end
+
+  resources :students do
+    resources :memberships, only: [:index, :show, :new]
+  end
+
 
   get 'teachers', to:'teachers#index'
   get 'teachers/new'
@@ -23,13 +27,6 @@ Rails.application.routes.draw do
   patch 'teachers/:id', to:'teachers#update'
   delete 'teachers/:id', to:'teachers#destroy'
 
-  get 'students', to:'students#index'
-  get 'students/new'
-  get 'students/:id', to:'students#show', as: :student
-  post 'students', to:'students#create'
-  get 'students/:id/edit', to:'students#edit', as: :edit_student
-  patch 'students/:id', to:'students#update'
-  delete 'students/:id', to:'students#destroy'
 
   get 'batches', to:'batches#index'
   get 'batches/new'
