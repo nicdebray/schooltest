@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_24_133627) do
+ActiveRecord::Schema.define(version: 2019_01_02_095538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,14 +47,10 @@ ActiveRecord::Schema.define(version: 2018_12_24_133627) do
     t.bigint "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "unique_membership_index"
+    t.index ["course_id", "student_id"], name: "index_memberships_on_course_id_and_student_id", unique: true
     t.index ["course_id"], name: "index_memberships_on_course_id"
     t.index ["student_id"], name: "index_memberships_on_student_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|

@@ -13,11 +13,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @teacher = Teacher.find(Teacher.last.id)
-    @batch = Batch.find(Batch.last.id)
     @course = Course.new(course_params)
-    @course.teacher = Teacher.find(Teacher.last.id)
-    @course.batch = Batch.find(Batch.last.id)
     if @course.save
       redirect_to courses_path
     else
@@ -47,12 +43,10 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:name)
+    params.require(:course).permit(:name, :teacher_id, :batch_id)
   end
 
   def course_find
-    @teacher = Teacher.find(Teacher.last.id)
-    @batch = Batch.find(Batch.last.id)
     @course = Course.find(params[:id])
   end
 end

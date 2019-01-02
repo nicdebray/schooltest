@@ -10,11 +10,11 @@ class MembershipsController < ApplicationController
   end
 
   def create
-    @membership = Membership.new
-    @student = Student.find_by(params[:student_id])
-    @course = Course.find_by(params[:course_id])
-    @membership.student = @student
-    @membership.course = @course
+    # @student = Student.find_by(params[:student_id])
+    # @course = Course.find_by(params[:course_id])
+    @membership = Membership.new(membership_params)
+    # @membership.student = @student
+    # @membership.course = @course
     if @membership.save!
       redirect_to memberships_path
     else
@@ -36,7 +36,7 @@ class MembershipsController < ApplicationController
   end
 
   def membership_params
-    params.require(:membership).permit(:student_id, :course_id)
+    params.require(:membership).permit(:student_id, :course_id, :unique_membership_index)
   end
 
 end

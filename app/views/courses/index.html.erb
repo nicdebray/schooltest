@@ -3,7 +3,9 @@
 <%= link_to "New Course", new_course_path %>
 <% @courses.each do |course| %>
 <ul>
-  <li><%= course.name %></li>
+  <li>Course: <%= course.name %></li>
+  <li>Teacher: <%= course.teacher.first_name %></li>
+  <li>Batch: <%= course.batch.name %></li>
   <li><%= link_to "Delete", course_path(course), method: :delete %></li>
   <li><%= link_to "Edit", edit_course_path(course) %></li>
 </ul>

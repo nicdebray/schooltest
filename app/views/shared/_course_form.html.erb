@@ -1,4 +1,12 @@
 <%= simple_form_for @course do |f| %>
 <%= f.input :name, label: "Course's name" %>
+<p>
+<%= label_tag :teacher %>
+<%= collection_select :course, :teacher_id, Teacher.all , :id, :first_name, { prompt: true } %>
+</p>
+<p>
+<%= label_tag :batch %>
+<%= collection_select :course, :batch_id, Batch.all , :id, :name, { prompt: true } %>
+</p>
 <%= f.button :submit, class: "button-green button" %>
 <% end %>

@@ -13,9 +13,7 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @batch = Batch.find(Batch.last.id)
     @student = Student.new(student_params)
-    @student.batch = Batch.find(Batch.last.id)
     if @student.save
       redirect_to students_path
     else
@@ -45,11 +43,10 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name)
+    params.require(:student).permit(:first_name, :last_name, :batch_id)
   end
 
   def student_find
-    @batch = Batch.find(Batch.last.id)
     @student = Student.find(params[:id])
   end
 end
