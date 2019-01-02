@@ -3,8 +3,19 @@
 <%= link_to "New Batch", batches_new_path %>
 <% @batches.each do |batch| %>
   <ul>
-    <li><%= batch.name %></li>
-    <li><%= batch.id %></li>
+    <li>Name: <%= batch.name %></li>
+    <li>Id: <%= batch.id %></li>
+    <li>Course(s):
+      <ul>
+        <% if batch.courses.empty? %>
+         not courses yet for this batch
+         <% else %>
+         <% batch.courses.each do |course| %>
+         <li><%= course.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </li>
     <li><%= link_to "Delete", batch_path(batch), method: :delete %></li>
     <li><%= link_to "Edit", edit_batch_path(batch) %></li>
   </ul>

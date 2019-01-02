@@ -3,19 +3,19 @@
 <%= link_to "New student", new_student_path %>
 <% @students.each do |student| %>
 <ul>
-  <li><%= link_to student.first_name, student_path(student) %></li>
+  <li>First name: <%= link_to student.first_name, student_path(student) %></li>
   <li>
     <% if student.batch.nil? %>
     no batch assigned yet
     <% else %>
-    <%= student.batch.name %>
+    Batch: <%= student.batch.name %>
     <% end %>
   </li>
   <li>
     <% if student.batch.nil? %>
     no batch assigned yet
     <% else %>
-    <%= student.batch.id %>
+    Batch Id: <%= student.batch.id %>
     <% end %>
   </li>
   <li><%= link_to "Delete", student_path(student), method: :delete %></li>

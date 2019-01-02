@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-  before_action :membership_find, only: [:destroy]
+  before_action :membership_find, only: [:edit, :update, :destroy]
 
   def index
     @memberships = Membership.all
@@ -10,12 +10,19 @@ class MembershipsController < ApplicationController
   end
 
   def create
-    # @student = Student.find_by(params[:student_id])
-    # @course = Course.find_by(params[:course_id])
     @membership = Membership.new(membership_params)
-    # @membership.student = @student
-    # @membership.course = @course
     if @membership.save!
+      redirect_to memberships_path
+    else
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @membership.update(membership_params)
       redirect_to memberships_path
     else
       render :new

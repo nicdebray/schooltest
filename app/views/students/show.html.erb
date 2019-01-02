@@ -11,13 +11,15 @@
     <% end %>
   </li>
   <li>Course(s):
-    <% if @student.courses.empty? %>
-    not enrolled in any courses yet
-    <% else %>
-      <% @student.courses.each do |course| %>
-      <li><%= course.name %></li>
+    <ul>
+      <% if @student.courses.empty? %>
+        not enrolled in any courses yet
+      <% else %>
+        <% @student.courses.each do |course| %>
+        <li><%= course.name %></li>
+        <% end %>
       <% end %>
-    <% end %>
+    </ul>
   </li>
   <li><%= link_to "Edit", edit_student_path(@student) %></li>
   <li><%= link_to "Back to all students", students_path %></li>
