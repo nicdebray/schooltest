@@ -4,6 +4,16 @@
 <% @teachers.each do |teacher| %>
 <ul>
   <li><%= teacher.last_name %></li>
+  <li>All course(s):</li>
+    <ul>
+      <% if Course.where(teacher_id: teacher.id.to_i).empty? %>
+        no courses for this teacher yet
+      <% else %>
+        <% Course.where(teacher_id: teacher.id.to_i).each do |course| %>
+        <li><%= course.name %> (batch: <%= course.batch.name %>)</li>
+        <% end %>
+      <% end %>
+    </ul>
   <li><%= link_to "Delete", teacher_path(teacher), method: :delete %></li>
   <li><%= link_to "Edit", edit_teacher_path(teacher) %></li>
 </ul>

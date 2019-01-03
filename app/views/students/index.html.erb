@@ -11,12 +11,19 @@
     Batch: <%= student.batch.name %>
     <% end %>
   </li>
-  <li>
-    <% if student.batch.nil? %>
-    no batch assigned yet
-    <% else %>
-    Batch Id: <%= student.batch.id %>
-    <% end %>
+  <li>Attended course(s):
+    <ul>
+      <% if student.courses.nil? %>
+        not attending any courses yet
+      <% else %>
+        <% student.courses.each do |course| %>
+        <li><%= course.name %></li>
+          <ul>
+            <li>Teacher: <%= course.teacher.last_name %></li>
+          </ul>
+        <% end %>
+      <% end %>
+    </ul>
   </li>
   <li><%= link_to "Delete", student_path(student), method: :delete %></li>
   <li><%= link_to "Edit", edit_student_path(student) %></li>

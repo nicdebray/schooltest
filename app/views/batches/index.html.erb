@@ -4,14 +4,18 @@
 <% @batches.each do |batch| %>
   <ul>
     <li>Name: <%= batch.name %></li>
-    <li>Id: <%= batch.id %></li>
     <li>Course(s):
       <ul>
         <% if batch.courses.empty? %>
          not courses yet for this batch
-         <% else %>
-         <% batch.courses.each do |course| %>
-         <li><%= course.name %></li>
+        <% else %>
+          <% batch.courses.each do |course| %>
+          <li><%= course.name %></li>
+            <% course.students.each do |student| %>
+              <ul>
+                <li><%= student.first_name %></li>
+              </ul>
+            <% end %>
           <% end %>
         <% end %>
       </ul>
