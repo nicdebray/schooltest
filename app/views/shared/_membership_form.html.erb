@@ -7,5 +7,5 @@
 <%= label_tag :course %>
 <%= collection_select :membership, :course_id, Course.all , :id, :name, { prompt: true } %>
 </p>
-<%= f.button :submit, class: "btn btn-primary" %>
+<%= f.button :submit, class: "btn btn-success" %>
 <% end %>

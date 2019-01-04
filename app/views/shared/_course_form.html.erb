@@ -8,5 +8,5 @@
 <%= label_tag :batch %>
 <%= collection_select :course, :batch_id, Batch.all , :id, :name, { prompt: true } %>
 </p>
-<%= f.button :submit, class: "button-green button" %>
+<%= f.button :submit, class: "btn btn-success" %>
 <% end %>
