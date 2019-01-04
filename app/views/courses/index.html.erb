@@ -1,24 +1,28 @@
-<h1>Courses#index</h1>
-<p>Find me in app/views/courses/index.html.erb</p>
-<%= link_to "New Course", new_course_path %>
-<p>All existing courses:</p>
-<% @courses.each do |course| %>
-<ul>
-  <li>Course: <%= course.name %></li>
-  <li>Batch: <%= course.batch.name %></li>
-  <li>Teacher: <%= course.teacher.first_name %></li>
-  <li>Enrolled student(s):
-    <ul>
-      <% if course.students.empty? %>
-      no students for this batch yet
-      <% else %>
-        <% course.students.each do |student| %>
-        <li><%= student.first_name %></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </li>
-  <li><%= link_to "Delete", course_path(course), method: :delete %></li>
-  <li><%= link_to "Edit", edit_course_path(course) %></li>
-</ul>
-<% end %>
+<div class="container-fluid">
+  <h1>Courses#index</h1>
+  <p>Find me in app/views/courses/index.html.erb</p>
+  <p><%= link_to "New Course", new_course_path, class: "btn btn-success" %></p>
+  <p>All existing courses:</p>
+  <% @courses.each do |course| %>
+    <div class="card">
+      <ul>
+        <li>Course: <%= course.name %></li>
+        <li>Batch: <%= course.batch.name %></li>
+        <li>Teacher: <%= course.teacher.first_name %></li>
+        <li>Enrolled student(s):
+          <ul>
+            <% if course.students.empty? %>
+            no students for this batch yet
+            <% else %>
+              <% course.students.each do |student| %>
+              <li><%= student.first_name %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </li>
+        <li><%= link_to "Delete", course_path(course), method: :delete %></li>
+        <li><%= link_to "Edit", edit_course_path(course) %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>

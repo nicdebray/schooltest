@@ -1,20 +1,24 @@
-<h1>Teachers#index</h1>
-<p>Find me in app/views/teachers/index.html.erb</p>
-<%= link_to "New Teacher", teachers_new_path %>
-<% @teachers.each do |teacher| %>
-<ul>
-  <li><%= teacher.last_name %></li>
-  <li>All course(s):</li>
-    <ul>
-      <% if Course.where(teacher_id: teacher.id.to_i).empty? %>
-        no courses for this teacher yet
-      <% else %>
-        <% Course.where(teacher_id: teacher.id.to_i).each do |course| %>
-        <li><%= course.name %> (batch: <%= course.batch.name %>)</li>
-        <% end %>
-      <% end %>
-    </ul>
-  <li><%= link_to "Delete", teacher_path(teacher), method: :delete %></li>
-  <li><%= link_to "Edit", edit_teacher_path(teacher) %></li>
-</ul>
-<% end %>
+<div class="container-fluid">
+  <h1>Teachers#index</h1>
+  <p>Find me in app/views/teachers/index.html.erb</p>
+  <p><%= link_to "New Teacher", teachers_new_path, class: "btn btn-success" %></p>
+  <% @teachers.each do |teacher| %>
+    <div class="card">
+      <ul>
+        <li><%= teacher.last_name %></li>
+        <li>All course(s):</li>
+          <ul>
+            <% if Course.where(teacher_id: teacher.id.to_i).empty? %>
+              no courses for this teacher yet
+            <% else %>
+              <% Course.where(teacher_id: teacher.id.to_i).each do |course| %>
+              <li><%= course.name %> (batch: <%= course.batch.name %>)</li>
+              <% end %>
+            <% end %>
+          </ul>
+        <li><%= link_to "Delete", teacher_path(teacher), method: :delete %></li>
+        <li><%= link_to "Edit", edit_teacher_path(teacher) %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>
