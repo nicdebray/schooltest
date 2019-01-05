@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'memberships/new'
   get 'memberships/create'
   get 'evaluations', to:'evaluations#index'
