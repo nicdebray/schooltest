@@ -1,0 +1,21 @@
+<% if Student.all.any? %>
+<div>
+  <p>
+    <%= label_tag :student %>
+    <%= collection_select :membership, :student_id, Student.all , :id, :first_name, { prompt: true } %>
+  </p>
+  <p>
+    <%= label_tag :course %>
+    <%= collection_select :membership, :course_id, Course.all , :id, :name, { prompt: true } %>
+  </p>
+</div>
+<% end %>
+<p><% if Student.all.any? %>Or <% end %> Create a new one</p>
+<div>
+  <%= f.fields_for :student, Student.new do |ff| %>
+    <%= ff.label :first_name %>
+    <%= ff.text_field :first_name %>
+    <%= ff.label :last_name %>
+    <%= ff.text_field :last_name %>
+  <% end %>
+</div>

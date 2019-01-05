@@ -9,6 +9,10 @@
   box-shadow: 0px 1px 4px rgba(0,0,0,0.2);
 }
 
+.navbarleft {
+  display: flex;
+}
+
 .navbarlogo a {
   color: $white;
   font-size: 24px;
@@ -20,6 +24,14 @@
   text-decoration: none;
 }
 
+.navbar-quicklinks {
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+  color: $white;
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
 }
@@ -28,7 +40,7 @@
   display: block;
 }
 
-#logo-menu {
+#quicklinks-menu {
   background-color: $white;
   border-radius: 5px;
   box-shadow: 0px 2px 8px rgba(0,0,0, 0.2);
@@ -39,13 +51,13 @@
   z-index: 1060;
 }
 
-#logo-menu ul {
+#quicklinks-menu ul {
   list-style-type: none;
   padding-left: 20px;
   margin-bottom: 5px;
 }
 
-#logo-menu a {
+#quicklinks-menu a {
   text-decoration: none;
 }
 

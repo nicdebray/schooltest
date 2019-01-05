@@ -1,0 +1,4 @@
+<%= simple_form_for @membership do |f| %>
+<%= student_fields(f, membership, student) %>
+<%= f.button :submit, class: "btn btn-success" %>
+<% end %>

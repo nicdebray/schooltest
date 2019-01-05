@@ -1,8 +1,13 @@
 <div class="container-fluid navigationbar">
-  <div class="navbarlogo">
-    <%= link_to "Logo", root_path %>
+  <div class="navbarleft">
+    <div class="navbarlogo">
+      <%= link_to "Logo", root_path %>
+    </div>
+    <div class="navbar-quicklinks">
+      Quick Links
+    </div>
   </div>
-  <div class="navbarlogo-menu-link hidden" id="logo-menu">
+  <div class="navbarlogo-menu-link hidden" id="quicklinks-menu">
     <ul>
       <li><%= link_to "Batches", batches_path %></li>
       <li><%= link_to "Courses", courses_path %></li>

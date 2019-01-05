@@ -11,11 +11,11 @@ Rails.application.routes.draw do
 
   resources :memberships
   resources :courses do
-    resources :memberships, only: [:index, :show, :new]
+    resources :memberships, only: [:index, :new, :create]
   end
 
   resources :students do
-    resources :memberships, only: [:index, :show, :new]
+    resources :memberships, only: [:index, :new, :create]
   end
 
 

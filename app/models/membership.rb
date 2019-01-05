@@ -1,5 +1,4 @@
 class Membership < ApplicationRecord
-  belongs_to :course, optional: true
-  belongs_to :student, optional: true
-
+  belongs_to :course
+  belongs_to :student
 end
