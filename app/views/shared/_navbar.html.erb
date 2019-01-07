@@ -6,14 +6,35 @@
     <div class="navbar-quicklinks">
       Quick Links
     </div>
+    <div class="navbarlogo-menu-link hidden" id="quicklinks-menu">
+      <ul>
+        <li><%= link_to "Batches", batches_path %></li>
+        <li><%= link_to "Courses", courses_path %></li>
+        <li><%= link_to "Teachers", teachers_path %></li>
+        <li><%= link_to "Students", students_path %></li>
+        <li><%= link_to "Memberships", memberships_path %></li>
+      </ul>
+    </div>
   </div>
-  <div class="navbarlogo-menu-link hidden" id="quicklinks-menu">
-    <ul>
-      <li><%= link_to "Batches", batches_path %></li>
-      <li><%= link_to "Courses", courses_path %></li>
-      <li><%= link_to "Teachers", teachers_path %></li>
-      <li><%= link_to "Students", students_path %></li>
-      <li><%= link_to "Memberships", memberships_path %></li>
-    </ul>
+  <div class="navbarright">
+    <div class="navbar-login">
+      <% if user_signed_in? %>
+      <%= current_user.email %>
+      <% else %>
+      Sign in
+      <% end %>
+    </div>
+    <div class="navbar-login-menu-link hidden" id="quicklinks-user-menu">
+      <ul>
+          <% if user_signed_in? %>
+        <li><%= current_user.email %></li>
+        <li><%= link_to "sign out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+        <li><%= link_to "sign in", user_session_path %></li>
+        <li><%= link_to "sign up", new_user_registration_path %></li>
+          <% end %>
+      </ul>
+
+    </div>
   </div>
 </div>
