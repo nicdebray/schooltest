@@ -2,7 +2,7 @@ class BatchesController < ApplicationController
   before_action :batch_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @batches = Batch.all
+    @batches = current_user.batches.all
   end
 
   def show
@@ -14,6 +14,7 @@ class BatchesController < ApplicationController
 
   def create
     @batch = Batch.new(batch_params)
+    @batch.user = current_user
     if @batch.save
       redirect_to batches_path
     else
