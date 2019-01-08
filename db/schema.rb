@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_08_133945) do
+ActiveRecord::Schema.define(version: 2019_01_08_215533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["course_id"], name: "index_assignments_on_course_id"
+    t.index ["user_id"], name: "index_assignments_on_user_id"
+  end
 
   create_table "batches", force: :cascade do |t|
     t.string "name"
@@ -33,17 +44,6 @@ ActiveRecord::Schema.define(version: 2019_01_08_133945) do
     t.index ["batch_id"], name: "index_courses_on_batch_id"
     t.index ["teacher_id"], name: "index_courses_on_teacher_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
-  end
-
-  create_table "evaluations", force: :cascade do |t|
-    t.string "name"
-    t.float "grade"
-    t.bigint "course_id"
-    t.bigint "student_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_evaluations_on_course_id"
-    t.index ["student_id"], name: "index_evaluations_on_student_id"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -91,12 +91,12 @@ ActiveRecord::Schema.define(version: 2019_01_08_133945) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assignments", "courses"
+  add_foreign_key "assignments", "users"
   add_foreign_key "batches", "users"
   add_foreign_key "courses", "batches"
   add_foreign_key "courses", "teachers"
   add_foreign_key "courses", "users"
-  add_foreign_key "evaluations", "courses"
-  add_foreign_key "evaluations", "students"
   add_foreign_key "memberships", "courses"
   add_foreign_key "memberships", "students"
   add_foreign_key "memberships", "users"

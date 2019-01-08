@@ -6,5 +6,5 @@ class Course < ApplicationRecord
   belongs_to :user
   has_many :memberships
   has_many :students, through: :memberships
-  has_many :evaluations
+  has_many :assignments
 end

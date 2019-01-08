@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  get 'assignments', to:'assignments#index'
+  get 'assignments/new'
+  get 'assignments/:id', to:'assignments#show', as: :assignment
+  post 'assignments', to:'assignments#create'
+  get 'assignments/:id/edit', to:'assignments#edit', as: :edit_assignment
+  patch 'assignments/:id', to:'assignments#update'
+  delete 'assignments/:id', to:'assignments#destroy'
+
   devise_for :users
   get 'memberships/new'
   get 'memberships/create'
