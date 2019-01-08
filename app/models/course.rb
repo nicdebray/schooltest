@@ -1,4 +1,6 @@
 class Course < ApplicationRecord
+  validates :name, presence: true
+
   belongs_to :teacher, optional: true
   belongs_to :batch, optional: true
   has_many :memberships

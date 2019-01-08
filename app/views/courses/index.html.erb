@@ -7,8 +7,21 @@
     <div class="card">
       <ul>
         <li>Course: <%= course.name %></li>
-        <li>Batch: <%= course.batch.name %></li>
-        <li>Teacher: <%= course.teacher.first_name %></li>
+        <li>
+          <% if course.batch.nil? %>
+          not assigned to any batches yet
+          <% else %>
+          Batch: <%= course.batch.name %>
+          <% end %>
+        </li>
+
+        <li>
+          <% if course.teacher.nil? %>
+          no teacher for this course yet
+          <% else %>
+          Teacher: <%= course.teacher.first_name %>
+          <% end %>
+        </li>
         <li>Enrolled student(s):
           <ul>
             <% if course.students.empty? %>
