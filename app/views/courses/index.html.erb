@@ -33,6 +33,17 @@
             <% end %>
           </ul>
         </li>
+        <li>Assignment(s):
+          <ul>
+            <% if course.assignments.empty? %>
+            no assignments for this course yet
+            <% else %>
+              <% course.assignments.each do |assignment| %>
+              <li><%= assignment.title %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </li>
         <li><%= link_to "Delete", course_path(course), method: :delete %></li>
         <li><%= link_to "Edit", edit_course_path(course) %></li>
       </ul>
