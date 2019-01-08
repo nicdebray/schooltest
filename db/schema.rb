@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_08_121849) do
+ActiveRecord::Schema.define(version: 2019_01_08_133945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 2019_01_08_121849) do
     t.bigint "batch_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["batch_id"], name: "index_courses_on_batch_id"
     t.index ["teacher_id"], name: "index_courses_on_teacher_id"
+    t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
   create_table "evaluations", force: :cascade do |t|
@@ -50,9 +52,11 @@ ActiveRecord::Schema.define(version: 2019_01_08_121849) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "unique_membership_index"
+    t.bigint "user_id"
     t.index ["course_id", "student_id"], name: "index_memberships_on_course_id_and_student_id", unique: true
     t.index ["course_id"], name: "index_memberships_on_course_id"
     t.index ["student_id"], name: "index_memberships_on_student_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -61,7 +65,9 @@ ActiveRecord::Schema.define(version: 2019_01_08_121849) do
     t.bigint "batch_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["batch_id"], name: "index_students_on_batch_id"
+    t.index ["user_id"], name: "index_students_on_user_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -69,6 +75,8 @@ ActiveRecord::Schema.define(version: 2019_01_08_121849) do
     t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,9 +94,13 @@ ActiveRecord::Schema.define(version: 2019_01_08_121849) do
   add_foreign_key "batches", "users"
   add_foreign_key "courses", "batches"
   add_foreign_key "courses", "teachers"
+  add_foreign_key "courses", "users"
   add_foreign_key "evaluations", "courses"
   add_foreign_key "evaluations", "students"
   add_foreign_key "memberships", "courses"
   add_foreign_key "memberships", "students"
+  add_foreign_key "memberships", "users"
   add_foreign_key "students", "batches"
+  add_foreign_key "students", "users"
+  add_foreign_key "teachers", "users"
 end

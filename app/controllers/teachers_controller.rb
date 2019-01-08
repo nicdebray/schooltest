@@ -2,7 +2,7 @@ class TeachersController < ApplicationController
   before_action :teacher_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @teachers = Teacher.all
+    @teachers = current_user.teachers.all
   end
 
   def show
@@ -14,6 +14,7 @@ class TeachersController < ApplicationController
 
   def create
     @teacher = Teacher.new(teacher_params)
+    @teacher.user = current_user
     if @teacher.save
       redirect_to teachers_path
     else

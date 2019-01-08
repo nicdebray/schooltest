@@ -4,7 +4,7 @@ class MembershipsController < ApplicationController
   before_action :set_course, only: [:index, :new, :edit]
 
   def index
-    @memberships = Membership.all
+    @memberships = current_user.memberships.all
   end
 
   def new
@@ -13,6 +13,7 @@ class MembershipsController < ApplicationController
 
   def create
     @membership = Membership.new(membership_params)
+    @membership.user_id = current_user.id
     if @membership.save!
       redirect_to memberships_path
     else
@@ -45,7 +46,7 @@ class MembershipsController < ApplicationController
   end
 
   def membership_params
-    params.require(:membership).permit(:student_id, :course_id, :unique_membership_index)
+    params.require(:membership).permit(:student_id, :course_id, :unique_membership_index, :user_id)
   end
 
   def set_student

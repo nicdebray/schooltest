@@ -2,6 +2,7 @@
   <h1>Memberships#index</h1>
   <p>Find me in app/views/memberships.html.erb</p>
   <p>Membership count: <%= Membership.count %></p>
+  <p><%= @memberships.empty? %></p>
   <p><%= link_to "New membership", new_membership_path, class: "btn btn-success" %></p>
     <% @memberships.each do |membership| %>
       <div class="card">

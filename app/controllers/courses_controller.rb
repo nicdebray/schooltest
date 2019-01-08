@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   before_action :course_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @courses = Course.all
+    @courses = current_user.courses.all
   end
 
   def show
@@ -14,6 +14,7 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
+    @course.user = current_user
     if @course.save
       redirect_to courses_path
     else
