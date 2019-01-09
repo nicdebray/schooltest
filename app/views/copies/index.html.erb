@@ -1,0 +1,20 @@
+<h1>Copies#index</h1>
+<p>Find me in app/views/copies/index.html.erb</p>
+<p>Copy count: <%= @copies.count %></p>
+<p><%= @copies.empty? %></p>
+<p><%= link_to "New copy", copies_new_path, class: "btn btn-success" %></p>
+  <% @copies.each do |copy| %>
+    <div class="card">
+      <ul>
+        <li>Student first name: <%= copy.student.first_name %></li>
+        <li>Assignment name: <%= copy.assignment.title %>
+          <ul>
+            <li>Grade: <%= copy.grade %></li>
+            <li>Comment: <%= copy.comment %></li>
+          </ul>
+        </li>
+        <li><%= link_to "Delete", copy_path(copy), method: :delete %></li>
+        <li><%= link_to "Edit", edit_copy_path(copy) %></li>
+      </ul>
+    </div>
+  <% end %>

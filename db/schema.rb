@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_08_215533) do
+ActiveRecord::Schema.define(version: 2019_01_09_124814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(version: 2019_01_08_215533) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_batches_on_user_id"
+  end
+
+  create_table "copies", force: :cascade do |t|
+    t.float "grade"
+    t.text "comment"
+    t.bigint "user_id"
+    t.bigint "assignment_id"
+    t.bigint "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assignment_id"], name: "index_copies_on_assignment_id"
+    t.index ["student_id"], name: "index_copies_on_student_id"
+    t.index ["user_id"], name: "index_copies_on_user_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -94,6 +107,9 @@ ActiveRecord::Schema.define(version: 2019_01_08_215533) do
   add_foreign_key "assignments", "courses"
   add_foreign_key "assignments", "users"
   add_foreign_key "batches", "users"
+  add_foreign_key "copies", "assignments"
+  add_foreign_key "copies", "students"
+  add_foreign_key "copies", "users"
   add_foreign_key "courses", "batches"
   add_foreign_key "courses", "teachers"
   add_foreign_key "courses", "users"

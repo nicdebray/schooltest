@@ -1,0 +1,13 @@
+<%= simple_form_for @copy do |f| %>
+<p>
+<%= label_tag :assignment %>
+<%= collection_select :copy, :assignment_id, current_user.assignments.all , :id, :title, { prompt: true } %>
+</p>
+<p>
+<%= label_tag :student %>
+<%= collection_select :copy, :student_id, current_user.students.all , :id, :first_name, { prompt: true } %>
+</p>
+<%= f.input :grade, label: "Copy's grade" %>
+<%= f.input :comment, label: "Copy's comments" %>
+<%= f.button :submit, class: "btn btn-success" %>
+<% end %>

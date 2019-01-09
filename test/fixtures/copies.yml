@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grade: 1.5
+  comment: MyText
+  user: one
+  assignment: one
+  student: one
+
+two:
+  grade: 1.5
+  comment: MyText
+  user: two
+  assignment: two
+  student: two

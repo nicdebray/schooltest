@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :students
   has_many :memberships
   has_many :assignments
+  has_many :copies
 end

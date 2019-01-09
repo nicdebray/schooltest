@@ -6,6 +6,14 @@
       <ul>
         <li><%= assignment.title %></li>
         <li>Course(s): <%= assignment.course.name %></li>
+        <li>Copies:
+          <% assignment.copies.each do |copy| %>
+          <ul>
+            <li><%= copy.student.first_name %> had <%= copy.grade %></li>
+          </ul>
+          <% end %>
+
+        </li>
         <li><%= link_to "Delete", assignment_path(assignment), method: :delete %></li>
         <li><%= link_to "Edit", edit_assignment_path(assignment) %></li>
       </ul>

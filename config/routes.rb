@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'copies', to:'copies#index'
+  get 'copies/new'
+  get 'copies/:id', to:'copies#show', as: :copy
+  post 'copies', to:'copies#create'
+  get 'copies/:id/edit', to:'copies#edit', as: :edit_copy
+  patch 'copies/:id', to:'copies#update'
+  delete 'copies/:id', to:'copies#destroy'
+
+
   get 'assignments', to:'assignments#index'
   get 'assignments/new'
   get 'assignments/:id', to:'assignments#show', as: :assignment
