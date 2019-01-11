@@ -8,13 +8,23 @@
     </div>
     <div class="maintagline-list">
       <ul>
-        <li><%= link_to "Batches", batches_path %> [<%= current_user.batches.count %>]</li>
-        <li><%= link_to "Courses", courses_path %> [<%= current_user.courses.count %>]</li>
-        <li><%= link_to "Teachers", teachers_path %> [<%= current_user.teachers.count %>]</li>
-        <li><%= link_to "Students", students_path %> [<%= current_user.students.count %>]</li>
-        <li><%= link_to "Memberships", memberships_path %> [<%= current_user.memberships.count %>]</li>
-        <li><%= link_to "Assignments", assignments_path %> [<%= current_user.assignments.count %>]</li>
-        <li><%= link_to "Copies", copies_path %> [<%= current_user.copies.count %>]</li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Batches", batches_path %> [<%= current_user.batches.count %>]</li>
+          <li><%= link_to "Courses", courses_path %> [<%= current_user.courses.count %>]</li>
+          <li><%= link_to "Teachers", teachers_path %> [<%= current_user.teachers.count %>]</li>
+          <li><%= link_to "Students", students_path %> [<%= current_user.students.count %>]</li>
+          <li><%= link_to "Memberships", memberships_path %> [<%= current_user.memberships.count %>]</li>
+          <li><%= link_to "Assignments", assignments_path %> [<%= current_user.assignments.count %>]</li>
+          <li><%= link_to "Copies", copies_path %> [<%= current_user.copies.count %>]</li>
+        <% else %>
+          <li><%= link_to "Batches", batches_path %> </li>
+          <li><%= link_to "Courses", courses_path %> </li>
+          <li><%= link_to "Teachers", teachers_path %> </li>
+          <li><%= link_to "Students", students_path %> </li>
+          <li><%= link_to "Memberships", memberships_path %> </li>
+          <li><%= link_to "Assignments", assignments_path %> </li>
+          <li><%= link_to "Copies", copies_path %> </li>
+        <% end %>
       </ul>
     </div>
   </div>
