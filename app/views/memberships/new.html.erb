@@ -1,3 +1,4 @@
 <h1>Memberships#new</h1>
 <p>Find me in app/views/memberships/new.html.erb</p>
-<%= render partial:  'form', locals: { membership: @membership, student: @student, course: @course} %>
+<%= render 'shared/membership_form', membership: @membership %>
+

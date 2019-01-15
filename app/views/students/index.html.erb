@@ -21,7 +21,11 @@
               <% student.courses.each do |course| %>
               <li><%= course.name %></li>
                 <ul>
+                  <% if course.teacher.nil? %>
+                    no teacher assigned yet
+                  <% else %>
                   <li>Teacher: <%= course.teacher.last_name %></li>
+                  <% end %>
                 </ul>
               <% end %>
             <% end %>
