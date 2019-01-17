@@ -5,7 +5,7 @@
   <p><%= @memberships.empty? %></p>
   <p><%= link_to "New membership", new_membership_path, class: "btn btn-success" %></p>
     <% @memberships.each do |membership| %>
-      <div class="card">
+      <div class="card card-index">
         <ul>
           <li>Membership Id: <%= membership.id %></li>
           <li>Student first name: <%= membership.student.first_name %></li>

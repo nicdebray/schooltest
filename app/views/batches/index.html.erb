@@ -3,7 +3,7 @@
   <p>Find me in app/views/batches/index.html.erb</p>
   <p><%= link_to "New Batch", new_batch_path, class: "btn btn-success" %></p>
   <% @batches.each do |batch| %>
-    <div class="card">
+    <div class="card card-index">
       <ul>
         <li>Name: <%= batch.name %></li>
         <li>Course(s):

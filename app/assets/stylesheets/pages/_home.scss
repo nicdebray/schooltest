@@ -8,10 +8,28 @@
   flex-direction: column;
 }
 
+.maintagline-list ul {
+  padding-left: 0px;
+}
+
 .maintagline-list li {
   list-style-type: none;
 }
 
 .maintagline-list a {
   text-decoration: none;
+}
+
+
+@media screen and (max-width: 565px) {
+    .maintagline h1 {
+      font-size: 22px;
+      font-weight: bolder;
+    }
+    .maintagline p {
+      font-size: 16px;
+    }
+    .maintagline li {
+      font-size: 16px;
+    }
 }

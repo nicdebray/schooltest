@@ -4,7 +4,7 @@
 <p><%= @copies.empty? %></p>
 <p><%= link_to "New copy", copies_new_path, class: "btn btn-success" %></p>
   <% @copies.each do |copy| %>
-    <div class="card">
+    <div class="card card-index">
       <ul>
         <li>Student first name: <%= copy.student.first_name %></li>
         <li>Assignment name: <%= copy.assignment.title %>
