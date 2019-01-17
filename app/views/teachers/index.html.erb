@@ -6,6 +6,13 @@
     <div class="card">
       <ul>
         <li><%= teacher.last_name %></li>
+        <li>
+          <% if teacher.photo.blank? %>
+          no profile picture
+          <% else %>
+          <%= cl_image_tag teacher.photo, height: 120, width: 120, crop: :fill %>
+          <% end %>
+        </li>
         <li>All course(s):</li>
           <ul>
             <% if Course.where(teacher_id: teacher.id.to_i).empty? %>

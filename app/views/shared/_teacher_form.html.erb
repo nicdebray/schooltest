@@ -1,5 +1,7 @@
 <%= simple_form_for @teacher do |f| %>
 <%= f.input :first_name, label: "Teacher's first name" %>
 <%= f.input :last_name, label: "Teacher's last name" %>
+<%= f.input :photo %>
+<%= f.input :photo_cache, as: :hidden %>
 <%= f.button :submit, class: "btn btn-success" %>
 <% end %>

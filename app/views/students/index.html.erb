@@ -7,6 +7,13 @@
       <ul>
         <li>First name: <%= link_to student.first_name, student_path(student) %></li>
         <li>
+          <% if student.photo.blank? %>
+          no profile picture
+          <% else %>
+          <%= cl_image_tag student.photo, height: 120, width: 120, crop: :fill %>
+          <% end %>
+        </li>
+        <li>
           <% if student.batch.nil? %>
           no batch assigned yet
           <% else %>

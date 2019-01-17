@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :memberships
   has_many :assignments
   has_many :copies
+
+  mount_uploader :photo, PhotoUploader
 end

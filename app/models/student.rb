@@ -8,4 +8,6 @@ class Student < ApplicationRecord
   has_many :courses, through: :memberships
   has_many :evaluations, dependent: :destroy
   has_many :copies
+
+  mount_uploader :photo, PhotoUploader
 end
