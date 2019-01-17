@@ -1,7 +1,7 @@
 <div class="container-fluid navigationbar">
   <div class="navbarleft">
     <div class="navbarlogo">
-      <%= link_to "Logo", root_path %>
+      <%= link_to "Home", root_path %>
     </div>
     <div class="navbar-quicklinks">
       Quick Links
@@ -21,11 +21,18 @@
   <div class="navbarright">
     <div class="navbar-login">
       <% if user_signed_in? %>
-      <%= current_user.email %>
+        <div class="d-none d-sm-flex">
+        <%= current_user.email %>
+        </div>
+        <div class="d-flex d-sm-none cat-icon">
+          <%= image_tag("gato1.png") %>
+        </div>
       <% else %>
-      Sign in
+        Sign in
       <% end %>
     </div>
+
+    <!-- dropdown menu for sign in/up -->
     <div class="navbar-login-menu-link hidden" id="quicklinks-user-menu">
       <ul>
           <% if user_signed_in? %>
@@ -37,7 +44,6 @@
         <li><%= link_to "sign up", new_user_registration_path %></li>
           <% end %>
       </ul>
-
     </div>
   </div>
 </div>
