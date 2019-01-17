@@ -1,27 +1,29 @@
-<h1>Students#show</h1>
-<p>Find me in app/views/students/show.html.erb</p>
-<ul>
-  <li>First name: <%= @student.first_name %></li>
-  <li>Last name: <%= @student.last_name %></li>
-  <li> Batch:
-    <% if @student.batch.nil? %>
-    no batch assigned yet
-    <% else %>
-    <%= @student.batch.name %>
-    <% end %>
-  </li>
-  <li>Course(s):
-    <ul>
-      <% if @student.courses.empty? %>
-        not enrolled in any courses yet
+<div class="container-fluid below-navbar">
+  <h1>Students#show</h1>
+  <p>Find me in app/views/students/show.html.erb</p>
+  <ul>
+    <li>First name: <%= @student.first_name %></li>
+    <li>Last name: <%= @student.last_name %></li>
+    <li> Batch:
+      <% if @student.batch.nil? %>
+      no batch assigned yet
       <% else %>
-        <% @student.courses.each do |course| %>
-        <li><%= course.name %></li>
-        <% end %>
+      <%= @student.batch.name %>
       <% end %>
-    </ul>
-  </li>
-  <li><%= link_to "Add to a course", new_student_membership_path(@student) %></li>
-  <li><%= link_to "Edit", edit_student_path(@student) %></li>
-  <li><%= link_to "Back to all students", students_path %></li>
-</ul>
+    </li>
+    <li>Course(s):
+      <ul>
+        <% if @student.courses.empty? %>
+          not enrolled in any courses yet
+        <% else %>
+          <% @student.courses.each do |course| %>
+          <li><%= course.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </li>
+    <li><%= link_to "Add to a course", new_student_membership_path(@student) %></li>
+    <li><%= link_to "Edit", edit_student_path(@student) %></li>
+    <li><%= link_to "Back to all students", students_path %></li>
+  </ul>
+</div>

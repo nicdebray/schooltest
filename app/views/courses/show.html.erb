@@ -1,9 +1,11 @@
-<h1>Courses#show</h1>
-<p>Find me in app/views/courses/show.html.erb</p>
-<%= Course.find(params[:id]) %>
-<%= @course %>
-<%= Teacher.find(params[:id]) %>
-<%= @teacher %>
-<% @course.teacher = Teacher.find(params[:id]) %>
-<%= @course.teacher.first_name %>
-<%= @course.id %>
+<div class="container-fluid below-navbar">
+  <h1>Courses#show</h1>
+  <p>Find me in app/views/courses/show.html.erb</p>
+  <%= Course.find(params[:id]) %>
+  <%= @course %>
+  <%= Teacher.find(params[:id]) %>
+  <%= @teacher %>
+  <% @course.teacher = Teacher.find(params[:id]) %>
+  <%= @course.teacher.first_name %>
+  <%= @course.id %>
+</div>

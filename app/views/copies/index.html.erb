@@ -1,8 +1,9 @@
-<h1>Copies#index</h1>
-<p>Find me in app/views/copies/index.html.erb</p>
-<p>Copy count: <%= @copies.count %></p>
-<p><%= @copies.empty? %></p>
-<p><%= link_to "New copy", copies_new_path, class: "btn btn-success" %></p>
+<div class="container-fluid below-navbar">
+  <h1>Copies#index</h1>
+  <p>Find me in app/views/copies/index.html.erb</p>
+  <p>Copy count: <%= @copies.count %></p>
+  <p><%= @copies.empty? %></p>
+  <p><%= link_to "New copy", copies_new_path, class: "btn btn-success" %></p>
   <% @copies.each do |copy| %>
     <div class="card card-index">
       <ul>
@@ -18,3 +19,4 @@
       </ul>
     </div>
   <% end %>
+</div>
