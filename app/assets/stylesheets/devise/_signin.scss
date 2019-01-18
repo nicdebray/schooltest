@@ -1,3 +1,38 @@
 .user-sign-in {
   margin-top: 85px;
 }
+
+.user-sign-in a {
+  font-size: 0.85em;
+  text-decoration: none;
+}
+
+.user_email {
+  margin-top: 20px;
+  font-size: 0.85em;
+  color: $dark-gray;
+}
+
+.user_password {
+  margin-top: 20px;
+  font-size: 0.85em;
+  color: $dark-gray;
+}
+
+.user_remember_me {
+  margin-top: 20px;
+  font-size: 0.75em;
+  color: $gray;
+}
+
+.user_remember_me input {
+  margin-right: 5px;
+}
+
+.form-actions-btn-devise {
+  margin: 10px 0px 15px 0px;
+}
+
+.btn-actions-devise {
+  min-width: 100px;
+}
