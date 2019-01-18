@@ -1,3 +1,23 @@
 .user-sign-up {
   margin-top: 85px;
 }
+
+.user_password_confirmation {
+  margin-top: 20px;
+  font-size: 0.85em;
+  color: $dark-gray;
+}
+
+.hint {
+  font-size: 0.75em;
+  color: $gray;
+}
+
+.btn-devise-sign-up {
+  margin-top: 25px;
+}
+
+.user-sign-up a {
+  font-size: 0.85em;
+  text-decoration: none;
+}
