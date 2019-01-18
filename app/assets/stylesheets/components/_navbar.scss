@@ -54,13 +54,21 @@
   z-index: 1060;
 }
 
-#quicklinks-menu ul {
+#quicklinks-menu ul, #quicklinks-user-menu ul {
   list-style-type: none;
-  padding-left: 20px;
   margin-bottom: 5px;
+  padding-left: 0px;
 }
 
-#quicklinks-menu a {
+#quicklinks-menu li, #quicklinks-user-menu li {
+  padding-left: 20px;
+}
+
+#quicklinks-menu li:hover, #quicklinks-user-menu li:hover {
+  background-color: rgba(0, 127, 255, 0.1);
+}
+
+#quicklinks-menu a, #quicklinks-user-menu a {
   text-decoration: none;
 }
 
@@ -86,7 +94,7 @@
 
 .navbar-login-menu-link {
   position: absolute;
-  min-width: 220px;
+  min-width: 120px;
   right: 5px;
   top: 65px;
   background-color: $white;
@@ -95,7 +103,6 @@
   padding: 10px 0px 5px 0px;
   text-align: left;
   z-index: 1060;
-  font-size: 14px;
 }
 
 .navbar-login-menu-link ul {
