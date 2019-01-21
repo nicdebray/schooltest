@@ -33,3 +33,16 @@
       font-size: 16px;
     }
 }
+
+.push-footer-down {
+  display: flex;
+  flex-direction: column;
+}
+
+.push-footer-down-maincontent {
+  flex-grow: 1;
+}
+
+body, html {
+  height: 100%;
+}
