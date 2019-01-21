@@ -14,14 +14,12 @@
   </head>
 
   <body>
-    <div class="push-footer-down">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-      <div class="push-footer-down-maincontent">
-        <%= yield %>
-      </div>
-      <%= render 'shared/footer' %>
+    <div class="push-footer-down-maincontent">
+      <%= yield %>
     </div>
+    <%= render 'shared/footer' %>
     <%= render 'shared/bootstrap_scripts' %>
     <%= javascript_pack_tag 'after_load_menu' %>
   </body>
