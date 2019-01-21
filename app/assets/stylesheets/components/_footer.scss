@@ -1,0 +1,18 @@
+.footer {
+  display: flex;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 65px;
+  width: 100%;
+  background-color: $light-gray;
+  padding: 0px 10px;
+}
+
+.footer-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
