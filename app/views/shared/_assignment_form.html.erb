@@ -3,7 +3,7 @@
 <%= f.input :description, label: "Assignment description" %>
 <p>
 <%= label_tag :course %>
-<%= collection_select :assignment, :course_id, Course.all , :id, :name, { prompt: true } %>
+<%= collection_select :assignment, :course_id, current_user.courses , :id, :name, { prompt: true } %>
 </p>
 <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
