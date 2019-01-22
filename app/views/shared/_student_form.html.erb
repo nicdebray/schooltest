@@ -3,7 +3,7 @@
 <%= f.input :last_name, label: "Student's last name" %>
 <p>
 <%= label_tag :batch %>
-<%= collection_select :student, :batch_id, Batch.all , :id, :name, { prompt: true } %>
+<%= collection_select :student, :batch_id, current_user.batches , :id, :name, { prompt: true } %>
 </p>
 <%= f.input :photo %>
 <%= f.input :photo_cache, as: :hidden %>
