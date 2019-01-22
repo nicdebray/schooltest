@@ -13,3 +13,16 @@
   align-items: baseline;
   justify-content: space-between;
 }
+
+.myfooter-icon {
+  padding: 0 5px;
+}
+
+@media screen and (max-width: 425px) {
+  .myfooter {
+    font-size: 14px;
+  }
+  .myfooter-icon {
+    padding: 0 1px;
+}
+}
