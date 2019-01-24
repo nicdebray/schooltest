@@ -1,7 +1,5 @@
 class CopiesController < ApplicationController
   before_action :copy_find, only: [:edit, :update, :destroy]
-  before_action :set_student, only: [:index, :new, :edit]
-  before_action :set_assignment, only: [:index, :new, :edit]
 
   def index
     @copies = current_user.copies.all
@@ -48,13 +46,5 @@ class CopiesController < ApplicationController
 
   def copy_params
     params.require(:copy).permit(:student_id, :assignment_id, :user_id, :comment, :grade)
-  end
-
-  def set_student
-    @student = Student.find_by(id: params[:student_id])
-  end
-
-  def set_assignment
-    @assignment = Assignment.find_by(id: params[:assignment_id])
   end
 end
