@@ -1,5 +1,7 @@
 <div class="container-fluid below-navbar">
-  <h1>Batches#edit</h1>
-  <p>Find me in app/views/batches/edit.html.erb</p>
-  <%= render 'shared/batch_form', batch: @batch %>
+  <h1>Edit <%= @batch.name %>'s name</h1>
+  <p>You can change and update batch <%= @batch.name %>'s name </p>
+  <div class="new-form-create col-xs-12 col-sm-6">
+    <%= render 'shared/batch_form', batch: @batch %>
+  </div>
 </div>
