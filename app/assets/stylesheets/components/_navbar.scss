@@ -55,14 +55,14 @@
   z-index: 1060;
 }
 
+.navbarlogo-menu-link li {
+  padding: 0px 10px;
+}
+
 #quicklinks-menu ul, #quicklinks-user-menu ul {
   list-style-type: none;
   margin-bottom: 5px;
   padding-left: 0px;
-}
-
-#quicklinks-menu li, #quicklinks-user-menu li {
-  padding-left: 10px;
 }
 
 #quicklinks-menu li:hover, #quicklinks-user-menu li:hover {
@@ -101,19 +101,19 @@
   background-color: $white;
   border-radius: 5px;
   box-shadow: 0px 2px 8px rgba(0,0,0, 0.2);
-  padding: 10px 10px 5px 0px;
+  padding: 10px 0px 5px 0px;
   text-align: left;
   z-index: 1060;
 }
 
 .navbar-login-menu-link ul {
   list-style-type: none;
-  padding-left: 20px;
   margin-bottom: 5px;
 }
 
 .navbar-login-menu-link li {
   color: rgba(38,185,249,1);
+  padding: 0px 10px;
 }
 
 .navbar-login-menu-link a {
