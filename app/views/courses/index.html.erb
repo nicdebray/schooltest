@@ -4,7 +4,7 @@
   <p><%= link_to "New Course", new_course_path, class: "btn btn-success" %></p>
   <p>All existing courses:</p>
   <% @courses.each do |course| %>
-    <div class="card card-index">
+    <div class="card card-index col-xs-12 col-sm-6">
       <ul>
         <li>Course: <%= course.name %></li>
         <li>

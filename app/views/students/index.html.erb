@@ -3,7 +3,7 @@
   <p>Find me in app/views/students/index.html.erb</p>
   <p> <%= link_to "New student", new_student_path, class: "btn btn-success" %></p>
   <% @students.each do |student| %>
-    <div class="card card-index">
+    <div class="card card-index col-xs-12 col-sm-6">
       <ul>
         <li>First name: <%= link_to student.first_name, student_path(student) %></li>
         <li>
