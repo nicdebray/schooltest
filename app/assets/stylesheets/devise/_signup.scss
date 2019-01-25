@@ -1,9 +1,13 @@
 .user-sign-up {
-  margin-top: 85px;
+  margin-top: 45px;
+}
+
+.user-sign-up h2 {
+  margin-bottom: 35px;
 }
 
 .user_password_confirmation {
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 0.85em;
   color: $dark-gray;
 }
@@ -20,4 +24,5 @@
 .user-sign-up a {
   font-size: 0.85em;
   text-decoration: none;
+  color: rgba(255,244,149,1);
 }
