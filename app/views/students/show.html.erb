@@ -22,8 +22,8 @@
         <% end %>
       </ul>
     </li>
-    <li><%= link_to "Add to a course", new_student_membership_path(@student) %></li>
-    <li><%= link_to "Edit", edit_student_path(@student) %></li>
-    <li><%= link_to "Back to all students", students_path %></li>
+    <li><%= link_to "Add to a course", new_student_membership_path(@student), class: "student-profile-action-link" %></li>
+    <li><%= link_to "Edit", edit_student_path(@student), class: "student-profile-action-link" %></li>
+    <li><%= link_to "Back to all students", students_path, class: "student-profile-action-link" %></li>
   </ul>
 </div>

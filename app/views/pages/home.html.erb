@@ -6,16 +6,44 @@
     <div class="maintagline-txt">
       <p>Cool new ruby on rails project to help digitalize schools and make teachers' life somewhat easier</p>
     </div>
-    <div class="maintagline-list">
+    <div class="maintagline-list col-xs-12 col-md-6">
       <ul>
         <% if user_signed_in? %>
-          <li><%= link_to "Batches", batches_path %> [<%= current_user.batches.count %>]</li>
-          <li><%= link_to "Courses", courses_path %> [<%= current_user.courses.count %>]</li>
-          <li><%= link_to "Teachers", teachers_path %> [<%= current_user.teachers.count %>]</li>
-          <li><%= link_to "Students", students_path %> [<%= current_user.students.count %>]</li>
-          <li><%= link_to "Memberships", memberships_path %> [<%= current_user.memberships.count %>]</li>
-          <li><%= link_to "Assignments", assignments_path %> [<%= current_user.assignments.count %>]</li>
-          <li><%= link_to "Copies", copies_path %> [<%= current_user.copies.count %>]</li>
+          <li>
+            <%= link_to (batches_path) do %>
+              Batches [<%= current_user.batches.count %>]
+              <% end %>
+          </li>
+          <li>
+            <%= link_to (courses_path) do %>
+              Courses [<%= current_user.courses.count %>]
+              <% end %>
+          </li>
+          <li>
+            <%= link_to (teachers_path) do %>
+              Teachers [<%= current_user.teachers.count %>]
+              <% end %>
+          </li>
+          <li>
+            <%= link_to (students_path) do %>
+              Students [<%= current_user.students.count %>]
+              <% end %>
+          </li>
+          <li>
+            <%= link_to (memberships_path) do %>
+              Memberships [<%= current_user.memberships.count %>]
+              <% end %>
+          </li>
+          <li>
+            <%= link_to (assignments_path) do %>
+              Assignements [<%= current_user.assignments.count %>]
+              <% end %>
+          </li>
+          <li>
+            <%= link_to (copies_path) do %>
+              Copies [<%= current_user.copies.count %>]
+              <% end %>
+          </li>
         <% else %>
           <li><%= link_to "Batches", batches_path %> </li>
           <li><%= link_to "Courses", courses_path %> </li>
