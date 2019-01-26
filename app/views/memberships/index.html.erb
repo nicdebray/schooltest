@@ -10,11 +10,12 @@
           <li>Course name: <%= membership.course.name %></li>
         </ul>
         <div class="card-index-actions card-index-delete">
-          <i class="far fa-trash-alt"><%= link_to "", membership_path(membership), method: :delete %></i>
-      </div>
-      <div class="card-index-actions card-index-edit">
-        <i class="far fa-edit"><%= link_to "", edit_membership_path(membership) %></i>
-      </div>
+          <i>
+          <%= link_to "", membership_path(membership), method: :delete, data: {confirm: "Are you sure?"}, class: "far fa-trash-alt" %></i>
+        </div>
+        <div class="card-index-actions card-index-edit">
+          <i> <%= link_to "", edit_membership_path(membership), class: "far fa-edit" %></i>
+        </div>
       </div>
     <% end %>
 </div>

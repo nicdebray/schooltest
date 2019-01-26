@@ -17,11 +17,11 @@
           </li>
         </ul>
         <div class="card-index-actions card-index-delete">
-          <i class="far fa-trash-alt">
-          <%= link_to "", assignment_path(assignment), method: :delete %></i>
+          <i>
+          <%= link_to "", assignment_path(assignment), method: :delete, data: {confirm: "Are you sure?"}, class: "far fa-trash-alt" %></i>
         </div>
         <div class="card-index-actions card-index-edit">
-          <i class="far fa-edit"> <%= link_to "", edit_assignment_path(assignment) %></i>
+          <i> <%= link_to "", edit_assignment_path(assignment), class: "far fa-edit" %></i>
         </div>
       </div>
     <% end %>

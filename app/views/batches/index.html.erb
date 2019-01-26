@@ -24,11 +24,12 @@
         </li>
       </ul>
       <div class="card-index-actions card-index-delete">
-        <i class="far fa-trash-alt"><%= link_to "", batch_path(batch), method: :delete %></i>
-      </div>
-      <div class="card-index-actions card-index-edit">
-        <i class="far fa-edit"><%= link_to "", edit_batch_path(batch) %></i>
-      </div>
+          <i>
+          <%= link_to "", batch_path(batch), method: :delete, data: {confirm: "Are you sure?"}, class: "far fa-trash-alt" %></i>
+        </div>
+        <div class="card-index-actions card-index-edit">
+          <i> <%= link_to "", edit_batch_path(batch), class: "far fa-edit" %></i>
+        </div>
     </div>
   <% end %>
 </div>
