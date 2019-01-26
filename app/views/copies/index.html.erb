@@ -1,8 +1,6 @@
 <div class="container-fluid below-navbar">
-  <h1>Copies#index</h1>
-  <p>Find me in app/views/copies/index.html.erb</p>
-  <p>Copy count: <%= @copies.count %></p>
-  <p><%= @copies.empty? %></p>
+  <h1>All Copies</h1>
+  <p>Find all your copies, edit or delete them and create new ones. There are currently <%= current_user.copies.count %> copy(ies).</p>
   <p><%= link_to "New copy", copies_new_path, class: "btn btn-success" %></p>
   <% @copies.each do |copy| %>
     <div class="card card-index col-xs-12 col-sm-6">

@@ -1,8 +1,6 @@
 <div class="container-fluid below-navbar">
-  <h1>Memberships#index</h1>
-  <p>Find me in app/views/memberships.html.erb</p>
-  <p>Membership count: <%= @memberships.count %></p>
-  <p><%= @memberships.empty? %></p>
+  <h1>All Memberships</h1>
+  <p>Find all the memberships, edit or delete them and create new ones. There are currently <%= current_user.memberships.count %> membership(s).</p>
   <p><%= link_to "New membership", new_membership_path, class: "btn btn-success" %></p>
     <% @memberships.each do |membership| %>
       <div class="card card-index col-xs-12 col-sm-6">
