@@ -23,9 +23,13 @@
               <% end %>
             <% end %>
           </ul>
-        <li><%= link_to "Delete", teacher_path(teacher), method: :delete %></li>
-        <li><%= link_to "Edit", edit_teacher_path(teacher) %></li>
       </ul>
+      <div class="card-index-actions card-index-delete">
+        <i class="far fa-trash-alt"><%= link_to "", teacher_path(teacher), method: :delete %></i>
+      </div>
+      <div class="card-index-actions card-index-edit">
+        <i class="far fa-edit"><%= link_to "", edit_teacher_path(teacher) %></i>
+      </div>
     </div>
   <% end %>
 </div>

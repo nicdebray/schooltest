@@ -14,9 +14,13 @@
             <li>Comment: <%= copy.comment %></li>
           </ul>
         </li>
-        <li><%= link_to "Delete", copy_path(copy), method: :delete %></li>
-        <li><%= link_to "Edit", edit_copy_path(copy) %></li>
       </ul>
+      <div class="card-index-actions card-index-delete">
+        <i class="far fa-trash-alt"><%= link_to "", copy_path(copy), method: :delete %></i>
+      </div>
+      <div class="card-index-actions card-index-edit">
+        <i class="far fa-edit"><%= link_to "", edit_copy_path(copy) %></i>
+      </div>
     </div>
   <% end %>
 </div>

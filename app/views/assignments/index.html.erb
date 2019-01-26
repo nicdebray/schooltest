@@ -15,9 +15,14 @@
             <% end %>
 
           </li>
-          <li><%= link_to "Delete", assignment_path(assignment), method: :delete %></li>
-          <li><%= link_to "Edit", edit_assignment_path(assignment) %></li>
         </ul>
+        <div class="card-index-actions card-index-delete">
+          <i class="far fa-trash-alt">
+          <%= link_to "", assignment_path(assignment), method: :delete %></i>
+        </div>
+        <div class="card-index-actions card-index-edit">
+          <i class="far fa-edit"> <%= link_to "", edit_assignment_path(assignment) %></i>
+        </div>
       </div>
     <% end %>
   </div>
