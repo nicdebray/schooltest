@@ -22,9 +22,15 @@
             <% end %>
           </ul>
         </li>
-        <li><%= link_to "Delete", batch_path(batch), method: :delete %></li>
-        <li><%= link_to "Edit batch's name", edit_batch_path(batch) %></li>
       </ul>
+      <div class="card-index-actions card-index-delete">
+        <i class="far fa-trash-alt"><%= link_to "", batch_path(batch), method: :delete %></i>
+
+      </div>
+      <div class="card-index-actions card-index-edit">
+        <i class="far fa-edit"><%= link_to "", edit_batch_path(batch) %></i>
+
+      </div>
     </div>
   <% end %>
 </div>

@@ -3,6 +3,7 @@
   padding-top: 10px;
   color: darkslategray;
   min-width: 285px;
+  min-height: 200px;
 }
 
 .card-index ul {
@@ -12,3 +13,75 @@
 .card-index li {
   list-style: none;
 }
+
+.card-index li a {
+  text-decoration: none;
+}
+
+.card-index-actions {
+  border-radius: 0px 0px 5px 5px;
+  font-size: 12px;
+  padding: 2px 5px;
+  cursor: pointer;
+  width: 35px;
+  text-align: center;
+  margin-top: -1px;
+}
+
+.card-index-actions a {
+  text-decoration: none;
+  color: white;
+}
+
+.card-index-edit {
+  position: absolute;
+  right: 45px;
+  top: 0;
+  color: rgba(16,184,252,0.33);
+  border: 1px solid rgba(16,184,252,0.33);
+}
+
+.card-index-edit i {
+  color: rgba(16,184,252,0.33);
+}
+
+.card-index-edit:hover {
+  background-color: rgba(16,184,252,0.33);
+  font-size: 14px;
+  border: none;
+  transition-duration: 500ms;
+  transition-property: background-color border font-size;
+
+  i {
+    color: white;
+    transition-duration: 500ms;
+    transition-property: color;
+  }
+}
+
+.card-index-delete {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  color: rgba(255,120,120,0.33);
+  border: 1px solid rgba(255,120,120,0.33);
+}
+
+.card-index-delete i {
+  color: rgba(255,120,120,0.33);
+}
+
+.card-index-delete:hover {
+  background-color: rgba(255,120,120,0.33);
+  font-size: 14px;
+  border: none;
+  transition-duration: 500ms;
+  transition-property: background-color font-size;
+
+  i {
+    color: white;
+    transition-duration: 500ms;
+    transition-property: color;
+  }
+}
+
