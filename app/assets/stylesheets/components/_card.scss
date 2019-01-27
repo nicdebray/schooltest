@@ -85,32 +85,46 @@
 }
 
 .card-index-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: [firstcol] 50% [secondcol] 50%;
+  grid-template-rows: repeat(6, 35px);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
 }
 
 .card-index-title {
-  height: 40px;
-  font-size: 20px;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: 22px;
 }
 
-.card-index-content {
-  flex-grow: 1;
-  display: flex;
-}
-
-.card-index-left-block {
-  flex-grow: 1;
-}
-
-.card-index-right-block {
-  flex-grow: 1;
-}
-
-.card-index-block-content-title {
+.card-index-content-title-left {
+  grid-row-start: 2;
   font-weight: bolder;
 }
 
-.card-index-footer {
-  height: 25px;
+.card-index-content-title-right {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  font-weight: bolder;
+}
+
+.card-index-block-content-list-left {
+  grid-row-start: 3;
+  grid-row-end: 6;
+  grid-column-start: 1;
+  overflow: scroll;
+  padding-right: 10px;
+}
+
+.card-index-block-content-list-right {
+  grid-row-start: 3;
+  grid-row-end: 6;
+  grid-column-start: 2;
+  overflow: scroll;
+}
+
+.card-index-block-list-empty {
+  font-size: 16px;
 }

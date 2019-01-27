@@ -4,50 +4,64 @@
   <p><%= link_to "New Batch", new_batch_path, class: "btn btn-success" %></p>
   <% @batches.each do |batch| %>
     <div class="card card-index col-xs-12 col-sm-6">
-      <div class="card-index-container">
-        <div class="card-index-title">
-          <%= batch.name %>
-        </div>
-        <div class="card-index-content">
-          <div class="card-index-left-block">
-            <div class="card-index-left-block-content">
-              <div class="card-index-block-content-title">
-              Course(s):
-            </div>
-              <ul>
-                <% if batch.courses.empty? %>
-                 not courses yet for this batch
-                <% else %>
-                  <% batch.courses.each do |course| %>
-                  <li><%= course.name %></li>
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-          <div class="card-index-right-block">
-            <div class="card-index-right-block-content">
-              <div class="card-index-block-content-title">
-              Student(s):
-            </div>
 
-              <ul>
-                <% if batch.students.empty? %>
-                 not students yet for this batch
-                <% else %>
-                  <% batch.students.each do |student| %>
-                    <ul>
-                      <li><%= student.first_name %></li>
-                    </ul>
-                  <% end %>
-                <% end %>
-              </ul>
-            </div>
+      <!-- card grid -->
+      <div class="card-index-container">
+
+        <!-- main title -->
+        <div class="card-index-title">
+          <div class="card-index-title-text">
+            <%= batch.name %>
           </div>
         </div>
+
+        <!-- title left -->
+        <div class="card-index-content-title-left">
+          Course(s):
+        </div>
+
+        <!-- list left -->
+        <div class="card-index-block-content-list-left">
+          <ul>
+            <% if batch.courses.empty? %>
+             <div class="card-index-block-list-empty">
+              no courses yet for this batch
+             </div>
+            <% else %>
+              <% batch.courses.each do |course| %>
+              <li><%= course.name %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+
+        <!-- title right -->
+        <div class="card-index-content-title-right">
+          Student(s):
+        </div>
+
+        <!-- list right -->
+        <div class="card-index-block-content-list-right">
+          <ul>
+            <% if batch.students.empty? %>
+               <div class="card-index-block-list-empty">
+                no students yet for this batch
+              </div>
+            <% else %>
+              <% batch.students.each do |student| %>
+                <ul>
+                  <li><%= student.first_name %></li>
+                </ul>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+
+        <!-- card footer -->
         <div class="card-index-footer">
 
         </div>
+
       </div>
       <div class="card-index-actions card-index-delete">
           <i>
