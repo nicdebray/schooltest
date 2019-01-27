@@ -4,25 +4,51 @@
   <p><%= link_to "New Batch", new_batch_path, class: "btn btn-success" %></p>
   <% @batches.each do |batch| %>
     <div class="card card-index col-xs-12 col-sm-6">
-      <ul>
-        <li>Name: <%= batch.name %></li>
-        <li>Course(s):
-          <ul>
-            <% if batch.courses.empty? %>
-             not courses yet for this batch
-            <% else %>
-              <% batch.courses.each do |course| %>
-              <li><%= course.name %></li>
-                <% course.students.each do |student| %>
-                  <ul>
-                    <li><%= student.first_name %></li>
-                  </ul>
+      <div class="card-index-container">
+        <div class="card-index-title">
+          <%= batch.name %>
+        </div>
+        <div class="card-index-content">
+          <div class="card-index-left-block">
+            <div class="card-index-left-block-content">
+              <div class="card-index-block-content-title">
+              Course(s):
+            </div>
+              <ul>
+                <% if batch.courses.empty? %>
+                 not courses yet for this batch
+                <% else %>
+                  <% batch.courses.each do |course| %>
+                  <li><%= course.name %></li>
+                  <% end %>
                 <% end %>
-              <% end %>
-            <% end %>
-          </ul>
-        </li>
-      </ul>
+              </ul>
+            </div>
+          </div>
+          <div class="card-index-right-block">
+            <div class="card-index-right-block-content">
+              <div class="card-index-block-content-title">
+              Student(s):
+            </div>
+
+              <ul>
+                <% if batch.students.empty? %>
+                 not students yet for this batch
+                <% else %>
+                  <% batch.students.each do |student| %>
+                    <ul>
+                      <li><%= student.first_name %></li>
+                    </ul>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-index-footer">
+
+        </div>
+      </div>
       <div class="card-index-actions card-index-delete">
           <i>
           <%= link_to "", batch_path(batch), method: :delete, data: {confirm: "Are you sure?"}, class: "far fa-trash-alt" %></i>

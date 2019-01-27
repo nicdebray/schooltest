@@ -84,3 +84,33 @@
   }
 }
 
+.card-index-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-index-title {
+  height: 40px;
+  font-size: 20px;
+}
+
+.card-index-content {
+  flex-grow: 1;
+  display: flex;
+}
+
+.card-index-left-block {
+  flex-grow: 1;
+}
+
+.card-index-right-block {
+  flex-grow: 1;
+}
+
+.card-index-block-content-title {
+  font-weight: bolder;
+}
+
+.card-index-footer {
+  height: 25px;
+}
