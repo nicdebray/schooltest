@@ -99,9 +99,34 @@
   font-size: 22px;
 }
 
+.card-index-subtitle-left-1 {
+  grid-row-start: 2;
+  grid-column-start: 1;
+}
+
+.card-index-subtitle-left-1-text {
+  font-weight: bolder;
+  padding-right: 10px;
+}
+
+.card-index-subtitle-left-2 {
+  grid-row-start: 3;
+  grid-column-start: 1;
+  font-weight: bolder;
+  padding-right: 10px;
+}
+
+.card-index-subtitle-left-2-list {
+  grid-row-start: 4;
+  grid-row-end: 6;
+  grid-column-start: 1;
+  padding-right: 10px;
+}
+
 .card-index-content-title-left {
   grid-row-start: 2;
   font-weight: bolder;
+  padding-right: 10px;
 }
 
 .card-index-content-title-right {
@@ -126,5 +151,13 @@
 }
 
 .card-index-block-list-empty {
-  font-size: 16px;
+  font-size: 14px;
+  overflow: scroll;
+  line-height: 16px;
+}
+
+.card-index-footer {
+  grid-row-start: 6;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }

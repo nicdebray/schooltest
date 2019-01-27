@@ -5,46 +5,80 @@
   <p>All existing courses:</p>
   <% @courses.each do |course| %>
     <div class="card card-index col-xs-12 col-sm-6">
-      <ul>
-        <li>Course: <%= course.name %></li>
-        <li>
-          <% if course.batch.nil? %>
-          not assigned to any batches yet
-          <% else %>
-          Batch: <%= course.batch.name %>
-          <% end %>
-        </li>
 
-        <li>
+      <!-- card grid -->
+      <div class="card-index-container">
+
+        <!-- main title -->
+        <div class="card-index-title">
+          <div class="card-index-title-text">
+            <%= course.name %>
+          </div>
+        </div>
+
+        <!-- subtitle left 1 -->
+        <div class="card-index-subtitle-left-1">
           <% if course.teacher.nil? %>
-          no teacher for this course yet
+            <div class="card-index-block-list-empty">
+              no teachers assigned yet for this course
+            </div>
           <% else %>
-          Teacher: <%= course.teacher.first_name %>
+            <div class="card-index-subtitle-left-1-text">
+            Teacher: <%= course.teacher.last_name %>
+            </div>
           <% end %>
-        </li>
-        <li>Enrolled student(s):
-          <ul>
-            <% if course.students.empty? %>
-            no students for this batch yet
-            <% else %>
-              <% course.students.each do |student| %>
-              <li><%= student.first_name %></li>
-              <% end %>
-            <% end %>
-          </ul>
-        </li>
-        <li>Assignment(s):
+        </div>
+
+        <!-- subtitle left 2 -->
+        <div class="card-index-subtitle-left-2">
+          <div class="card-index-subtitle-text">
+            Assignment(s):
+          </div>
+        </div>
+
+        <!-- list subtitle left 2 -->
+        <div class="card-index-subtitle-left-2-list">
           <ul>
             <% if course.assignments.empty? %>
-            no assignments for this course yet
+             <div class="card-index-block-list-empty">
+              no assignments yet for this course
+             </div>
             <% else %>
               <% course.assignments.each do |assignment| %>
               <li><%= assignment.title %></li>
               <% end %>
             <% end %>
           </ul>
-        </li>
-      </ul>
+        </div>
+
+      <!-- title right -->
+        <div class="card-index-content-title-right">
+          Student(s):
+        </div>
+
+        <!-- list right -->
+        <div class="card-index-block-content-list-right">
+          <ul>
+            <% if course.students.empty? %>
+               <div class="card-index-block-list-empty">
+                no students yet for this course
+              </div>
+            <% else %>
+              <% course.students.each do |student| %>
+                <ul>
+                  <li><%= student.first_name %></li>
+                </ul>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+
+        <!-- card footer -->
+        <div class="card-index-footer">
+        </div>
+      </div>
+
+      <!-- card actions -->
       <div class="card-index-actions card-index-delete">
           <i>
           <%= link_to "", course_path(course), method: :delete, data: {confirm: "Are you sure?"}, class: "far fa-trash-alt" %></i>
