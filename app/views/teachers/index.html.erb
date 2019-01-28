@@ -4,26 +4,79 @@
   <p><%= link_to "New Teacher", teachers_new_path, class: "btn btn-success" %></p>
   <% @teachers.each do |teacher| %>
     <div class="card card-index col-xs-12 col-sm-6">
-      <ul>
-        <li><%= teacher.last_name %></li>
-        <li>
-          <% if teacher.photo.blank? %>
-          no profile picture
-          <% else %>
-          <%= cl_image_tag teacher.photo, height: 120, width: 120, crop: :fill %>
-          <% end %>
-        </li>
-        <li>All course(s):</li>
+
+      <!-- card grid -->
+      <div class="card-index-container">
+
+        <!-- main title -->
+        <div class="card-index-title">
+          <div class="card-index-title-text">
+            <%= teacher.last_name %>
+          </div>
+        </div>
+
+        <!-- title left -->
+        <div class="card-index-content-title-left">
+          Course(s):
+        </div>
+
+        <!-- list left -->
+        <div class="card-index-block-content-list-left">
           <ul>
             <% if Course.where(teacher_id: teacher.id.to_i).empty? %>
-              no courses for this teacher yet
+              <div class="card-index-block-list-empty">
+                no courses for this teacher yet
+              </div>
             <% else %>
               <% Course.where(teacher_id: teacher.id.to_i).each do |course| %>
-              <li><%= course.name %> (batch: <%= course.batch.name %>)</li>
+              <li><%= course.name %></li>
               <% end %>
             <% end %>
           </ul>
-      </ul>
+        </div>
+
+        <!-- picture right -->
+        <div class="card-index-content-picture-right">
+          <% if teacher.photo.blank? %>
+            <div class="card-index-block-list-empty">
+              no profile picture
+            </div>
+          <% else %>
+          <%= cl_image_tag teacher.photo, height: 40, width: 40, crop: :fill %>
+          <% end %>
+        </div>
+
+        <!-- subtitle right -->
+        <div class="card-index-content-subtitle-right">
+          Assignment(s):
+        </div>
+
+        <!-- sublist right -->
+        <div class="card-index-block-content-sublist-right">
+          <ul>
+            <% if Course.where(teacher_id: teacher.id.to_i).empty? %>
+               <div class="card-index-block-list-empty">
+                no assignements given yet
+              </div>
+            <% else %>
+              <% Course.where(teacher_id: teacher.id.to_i).each do |course| %>
+                <% course.assignments.each do |assignment| %>
+                  <ul>
+                    <li><%= assignment.title %></li>
+                  </ul>
+                <% end %>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+
+        <!-- card footer -->
+        <div class="card-index-footer">
+        </div>
+
+      </div>
+
+      <!-- card actions -->
       <div class="card-index-actions card-index-delete">
           <i>
           <%= link_to "", teacher_path(teacher), method: :delete, data: {confirm: "Are you sure?"}, class: "far fa-trash-alt" %></i>
