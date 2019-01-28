@@ -4,18 +4,53 @@
   <p><%= link_to "New Assignment", assignments_new_path, class: "btn btn-success" %></p>
     <% @assignments.each do |assignment| %>
       <div class="card card-index col-xs-12 col-sm-6">
-        <ul>
-          <li><%= assignment.title %></li>
-          <li>Course(s): <%= assignment.course.name %></li>
-          <li>Copies:
-            <% assignment.copies.each do |copy| %>
-            <ul>
-              <li><%= copy.student.first_name %> had <%= copy.grade %></li>
-            </ul>
-            <% end %>
+        <!-- card grid -->
+      <div class="card-index-container">
 
-          </li>
-        </ul>
+        <!-- main title -->
+        <div class="card-index-title">
+          <div class="card-index-title-text">
+            <%= assignment.title %>
+          </div>
+        </div>
+
+        <!-- title left -->
+        <div class="card-index-content-title-left">
+          Description:
+        </div>
+
+        <!-- sublist left -->
+        <div class="card-index-block-content-list-left">
+          <%= assignment.description %>
+        </div>
+
+        <!-- title right -->
+        <div class="card-index-content-title-right">
+          Course: <%= assignment.course.name %>
+        </div>
+
+        <!-- subtitle right row3-->
+        <div class="card-index-content-title-right-r3">
+          Copies:
+        </div>
+
+        <div class="card-index-block-content-sublist-right">
+          <ul>
+            <% if assignment.copies.empty? %>
+              <div class="card-index-block-list-empty">
+                no copies yet for this assignement
+              </div>
+            <% else %>
+              <% assignment.copies.each do |copy| %>
+                  <li><%= copy.student.first_name %>: <%= copy.grade %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>
+
+
         <div class="card-index-actions card-index-delete">
           <i>
           <%= link_to "", assignment_path(assignment), method: :delete, data: {confirm: "Are you sure?"}, class: "far fa-trash-alt" %></i>

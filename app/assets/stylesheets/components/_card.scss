@@ -100,6 +100,8 @@
   border-bottom: 1px solid $light-gray;
 }
 
+// left card
+
 .card-index-subtitle-left-1 {
   grid-row-start: 2;
   grid-column-start: 1;
@@ -148,6 +150,8 @@
   padding-right: 10px;
 }
 
+// card right
+
 .card-index-content-title-right {
   grid-row-start: 2;
   grid-column-start: 2;
@@ -159,7 +163,12 @@
   grid-column-start: 2;
 }
 
-.card-index-content-subtitle-right {
+.card-index-content-subtitle-right-r2 {
+  grid-row-start: 2;
+  grid-column-start: 2;
+}
+
+.card-index-content-subtitle-right-r3 {
   grid-row-start: 3;
   grid-column-start: 2;
 }
