@@ -4,15 +4,64 @@
   <p><%= link_to "New copy", copies_new_path, class: "btn btn-success" %></p>
   <% @copies.each do |copy| %>
     <div class="card card-index col-xs-12 col-sm-6">
-      <ul>
-        <li>Student first name: <%= copy.student.first_name %></li>
-        <li>Assignment name: <%= copy.assignment.title %>
-          <ul>
-            <li>Grade: <%= copy.grade %></li>
-            <li>Comment: <%= copy.comment %></li>
-          </ul>
-        </li>
-      </ul>
+
+      <!-- card grid -->
+      <div class="card-index-container">
+
+        <!-- main title -->
+        <div class="card-index-title">
+          <div class="card-index-title-text">
+            <%= copy.assignment.title %>
+          </div>
+        </div>
+
+        <!-- subtitle left 1 -->
+        <div class="card-index-subtitle-left-1">
+          <% if copy.assignment.course.blank? %>
+            <div class="card-index-block-list-empty">
+              no courses assigned yet for this copy
+            </div>
+          <% else %>
+            <div class="card-index-subtitle-left-1-text">
+            Course: <%= copy.assignment.course.name %>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- subtitle left r3 -->
+        <div class="card-index-subtitle-left-2">
+          Grade: <%= copy.grade %>
+        </div>
+
+        <!-- content subtitle left r4 -->
+        <div class="card-index-subtitle-left-2-list">
+          Comment: <%= copy.comment %>
+        </div>
+
+        <!-- picture right -->
+        <div class="card-index-content-picture-right">
+          <% if copy.student.photo.blank? %>
+            <div class="card-index-block-list-empty">
+              no profile picture
+            </div>
+          <% else %>
+          <%= cl_image_tag student.photo, height: 40, width: 40, crop: :fill %>
+          <% end %>
+        </div>
+
+        <!-- content subtitle left r4 -->
+        <div class="card-index-content-subtitle-right-r3">
+          <%= copy.student.first_name %> <%= copy.student.last_name %>
+        </div>
+
+
+
+
+      </div>
+
+
+
+      <!-- card actions -->
       <div class="card-index-actions card-index-delete">
           <i>
           <%= link_to "", copy_path(copy), method: :delete, data: {confirm: "Are you sure?"}, class: "far fa-trash-alt" %></i>
