@@ -140,6 +140,14 @@
   padding-right: 10px;
 }
 
+.card-index-block-content-sublist-left {
+  grid-row-start: 4;
+  grid-row-end: 6;
+  grid-column-start: 1;
+  overflow: scroll;
+  padding-right: 10px;
+}
+
 .card-index-content-title-right {
   grid-row-start: 2;
   grid-column-start: 2;

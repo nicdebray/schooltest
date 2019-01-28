@@ -4,48 +4,77 @@
   <p> <%= link_to "New student", new_student_path, class: "btn btn-success" %></p>
   <% @students.each do |student| %>
     <div class="card card-index col-xs-12 col-sm-6">
-      <ul>
-        <li>First name: <%= link_to student.first_name, student_path(student) %></li>
-        <li>
-          <% if student.photo.blank? %>
-          no profile picture
-          <% else %>
-          <%= cl_image_tag student.photo, height: 120, width: 120, crop: :fill %>
-          <% end %>
-        </li>
-        <li>
-          <% if student.batch.nil? %>
-          no batch assigned yet
-          <% else %>
-          Batch: <%= student.batch.name %>
-          <% end %>
-        </li>
-        <li>Attended course(s):
+      <!-- card grid -->
+      <div class="card-index-container">
+
+        <!-- main title -->
+        <div class="card-index-title">
+          <div class="card-index-title-text">
+            <%= student.first_name %>
+          </div>
+        </div>
+
+        <!-- title left -->
+        <div class="card-index-content-title-left">
           <ul>
-            <% if student.courses.nil? %>
-              not attending any courses yet
+            <% if student.batch.name.empty? %>
+              <div class="card-index-block-list-empty">
+                no batches for this student yet
+              </div>
             <% else %>
-              <% student.courses.each do |course| %>
-              <li><%= course.name %></li>
+              <%= student.batch.name %>
+            <% end %>
+          </ul>
+        </div>
+
+        <!-- subtitle left -->
+        <div class="card-index-subtitle-left-2">
+          Assignment(s):
+        </div>
+
+        <!-- sublist left -->
+        <div class="card-index-block-content-sublist-left">
+          <ul>
+            <% if Copy.where(student_id: student.id.to_i).empty? %>
+               <div class="card-index-block-list-empty">
+                no copies yet
+              </div>
+            <% else %>
+              <% Copy.where(student_id: student.id.to_i).each do |copy| %>
                 <ul>
-                  <% if course.teacher.nil? %>
-                    no teacher assigned yet
-                  <% else %>
-                  <li>Teacher: <%= course.teacher.last_name %></li>
-                  <% end %>
+                  <li><%= copy.assignment.title %> (grade:" <%= copy.grade %>") </li>
                 </ul>
               <% end %>
             <% end %>
           </ul>
-        </li>
-      </ul>
+        </div>
+
+        <!-- picture right -->
+        <div class="card-index-content-picture-right">
+          <% if student.photo.blank? %>
+            <div class="card-index-block-list-empty">
+              no profile picture
+            </div>
+          <% else %>
+          <%= cl_image_tag student.photo, height: 40, width: 40, crop: :fill %>
+          <% end %>
+        </div>
+
+      </div>
+
+
+      <!-- card footer -->
+      <div class="card-index-footer">
+      </div>
+
+      <!-- card actions -->
       <div class="card-index-actions card-index-delete">
-          <i>
-          <%= link_to "", student_path(student), method: :delete, data: {confirm: "Are you sure?"}, class: "far fa-trash-alt" %></i>
-        </div>
-        <div class="card-index-actions card-index-edit">
-          <i> <%= link_to "", edit_student_path(student), class: "far fa-edit" %></i>
-        </div>
+        <i>
+        <%= link_to "", student_path(student), method: :delete, data: {confirm: "Are you sure?"}, class: "far fa-trash-alt" %></i>
+      </div>
+      <div class="card-index-actions card-index-edit">
+        <i> <%= link_to "", edit_student_path(student), class: "far fa-edit" %></i>
+      </div>
     </div>
   <% end %>
 </div>

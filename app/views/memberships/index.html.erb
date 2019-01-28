@@ -2,20 +2,47 @@
   <h1>All Memberships</h1>
   <p>Find all the memberships, edit or delete them and create new ones. There are currently <%= current_user.memberships.count %> membership(s).</p>
   <p><%= link_to "New membership", new_membership_path, class: "btn btn-success" %></p>
-    <% @memberships.each do |membership| %>
-      <div class="card card-index col-xs-12 col-sm-6">
-        <ul>
-          <li>Membership Id: <%= membership.id %></li>
-          <li>Student first name: <%= membership.student.first_name %></li>
-          <li>Course name: <%= membership.course.name %></li>
-        </ul>
-        <div class="card-index-actions card-index-delete">
-          <i>
-          <%= link_to "", membership_path(membership), method: :delete, data: {confirm: "Are you sure?"}, class: "far fa-trash-alt" %></i>
+  <% @memberships.each do |membership| %>
+    <div class="card card-index col-xs-12 col-sm-6">
+    <!-- card grid -->
+      <div class="card-index-container">
+        <!-- main title -->
+        <div class="card-index-title">
+          <div class="card-index-title-text">
+            Membership Id: <%= membership.id %>
+          </div>
         </div>
-        <div class="card-index-actions card-index-edit">
-          <i> <%= link_to "", edit_membership_path(membership), class: "far fa-edit" %></i>
+
+        <!-- title left -->
+        <div class="card-index-content-title-left">
+          Student:
         </div>
+
+        <!-- sublist left -->
+        <div class="card-index-block-content-list-left">
+          <%= membership.student.first_name %>
+        </div>
+
+        <!-- title right -->
+        <div class="card-index-content-title-right">
+          Course:
+        </div>
+
+        <!-- sublist right -->
+        <div class="card-index-block-content-list-right">
+          <%= membership.course.name %>
+        </div>
+
       </div>
-    <% end %>
+
+      <!-- card actions -->
+      <div class="card-index-actions card-index-delete">
+        <i>
+        <%= link_to "", membership_path(membership), method: :delete, data: {confirm: "Are you sure?"}, class: "far fa-trash-alt" %></i>
+      </div>
+      <div class="card-index-actions card-index-edit">
+        <i> <%= link_to "", edit_membership_path(membership), class: "far fa-edit" %></i>
+      </div>
+    </div>
+  <% end %>
 </div>
