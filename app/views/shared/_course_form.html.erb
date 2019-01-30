@@ -1,12 +1,16 @@
 <%= simple_form_for @course do |f| %>
-<%= f.input :name, label: "Course's name" %>
+<%= f.input :name,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "Course's name",
+            class: 'form-control form-margin-btn' } %>
 <p>
-<%= label_tag :teacher %>
+<%= f.label :teacher, class: "course_label_teacher_name" %>
 <%= collection_select :course, :teacher_id, current_user.teachers , :id, :first_name, { prompt: true } %>
 </p>
 <p>
-<%= label_tag :batch %>
+<%= f.label :batch, class: "course_label_batch_name" %>
 <%= collection_select :course, :batch_id, current_user.batches , :id, :name, { prompt: true } %>
 </p>
-<%= f.button :submit, class: "btn btn-success" %>
+<%= f.button :submit, class: "btn btn-success btn-form-edit-new" %>
 <% end %>
