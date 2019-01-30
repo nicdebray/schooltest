@@ -1,5 +1,7 @@
 <div class="container-fluid below-navbar">
-  <h1>Teachers#edit</h1>
-  <p>Find me in app/views/teachers/edit.html.erb</p>
+  <h1>Edit <%= @teacher.last_name %> informations</h1>
+  <p>You can change and update <%= @teacher.last_name %> informations</p>
+  <div class="new-form-create col-xs-12 col-sm-6">
   <%= render 'shared/teacher_form', teacher: @teacher %>
+  </div>
 </div>
