@@ -3,7 +3,18 @@
 .course_label_batch_name,
 .teacher_first_name,
 .teacher_last_name,
-.teacher_photo {
+.teacher_photo,
+.student_label_batch_name,
+.student_first_name,
+.student_last_name,
+.student_photo,
+.membership_label_student_name,
+.membership_label_course_name,
+.assignment_label_course_name,
+.assignment_title,
+.assignment_description
+
+ {
   margin-top: 20px;
   font-size: 0.85em;
   color: $dark-gray;

@@ -1,5 +1,7 @@
 <div class="container-fluid below-navbar">
-  <h1>Memberships#edit</h1>
-  <p>Find me in app/views/memberships/edit.html.erb</p>
-  <%= render 'shared/membership_form', membership: @membership %>
+  <h1>Edit Membership<%= @membership.id %>'s informations</h1>
+  <p>You can change and update Membership<%= @membership.id %>'s informations</p>
+  <div class="new-form-create col-xs-12 col-sm-6">
+    <%= render 'shared/membership_form', membership: @membership %>
+  </div>
 </div>

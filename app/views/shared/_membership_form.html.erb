@@ -1,11 +1,13 @@
 <%= simple_form_for @membership do |f| %>
 <p>
-<%= label_tag :student %>
+<%= f.label :student, class: "membership_label_student_name" %>
 <%= collection_select :membership, :student_id, current_user.students.all , :id, :first_name, { prompt: true } %>
 </p>
 <p>
-<%= label_tag :course %>
+<%= f.label :course, class: "membership_label_course_name" %>
 <%= collection_select :membership, :course_id, current_user.courses.all , :id, :name, { prompt: true } %>
 </p>
-<%= f.button :submit, class: "btn btn-success" %>
+<%= f.button :submit, class: "btn btn-success btn-form-edit-new" %>
 <% end %>
+
+

@@ -1,9 +1,19 @@
 <%= simple_form_for @assignment do |f| %>
-<%= f.input :title, label: "Assignment title" %>
-<%= f.input :description, label: "Assignment description" %>
+<%= f.input :title,
+            autofocus: true,
+            input_html: { autocomplete: "Assignment's title",
+            class: 'form-control form-margin-btn'}%>
+
+<%= f.input :description,
+            autofocus: true,
+            input_html: { autocomplete: "Assignment's description",
+            class: 'form-control form-margin-btn'}%>
 <p>
-<%= label_tag :course %>
-<%= collection_select :assignment, :course_id, current_user.courses , :id, :name, { prompt: true } %>
+<%= f.label :course, class: "assignment_label_course_name" %>
+<%= collection_select :student, :batch_id, current_user.batches , :id, :name, { prompt: true } %>
 </p>
-<%= f.button :submit, class: "btn btn-success" %>
+<%= f.button :submit, class: "btn btn-success btn-form-edit-new" %>
 <% end %>
+
+
+
