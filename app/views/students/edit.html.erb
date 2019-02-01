@@ -1,5 +1,8 @@
 <div class="container-fluid below-navbar">
   <h1>Edit <%= @student.first_name %> <%= @student.last_name %> informations</h1>
   <p>You can change and update <%= @student.first_name %>'s informations</p>
+  <div class="new-form-create col-xs-12 col-sm-6">
   <%= render 'shared/student_form', student: @student %>
+  </div>
 </div>
+
