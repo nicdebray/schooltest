@@ -1,5 +1,7 @@
 <div class="container-fluid below-navbar">
-  <h1>Copies#edit</h1>
-  <p>Find me in app/views/copies/edit.html.erb</p>
-  <%= render 'shared/copy_form' %>
+  <h1>Edit <%= @copy.student.first_name %>'s copy for <%= @copy.assignment.title %> assignment</h1>
+  <p>You can change and update it here below</p>
+  <div class="new-form-create col-xs-12 col-sm-6">
+    <%= render 'shared/copy_form' %>
+  </div>
 </div>

@@ -1,13 +1,20 @@
 <%= simple_form_for @copy do |f| %>
 <p>
-<%= label_tag :assignment %>
+<%= f.label :assignement, class: "copy_label_assignment_name" %>
 <%= collection_select :copy, :assignment_id, current_user.assignments.all , :id, :title, { prompt: true } %>
 </p>
 <p>
-<%= label_tag :student %>
+<%= f.label :student, class: "copy_label_student_name" %>
 <%= collection_select :copy, :student_id, current_user.students.all , :id, :first_name, { prompt: true } %>
 </p>
-<%= f.input :grade, label: "Copy's grade" %>
-<%= f.input :comment, label: "Copy's comments" %>
-<%= f.button :submit, class: "btn btn-success" %>
+<%= f.input :grade,
+            autofocus: true,
+            input_html: { autocomplete: "Copy's's grade",
+            class: 'form-control form-margin-btn'}%>
+
+<%= f.input :comment,
+            input_html: { autocomplete: "Copy's comments",
+            class: 'form-control form-margin-btn'}%>
+<%= f.button :submit, class: "btn btn-success btn-form-edit-new" %>
 <% end %>
+
