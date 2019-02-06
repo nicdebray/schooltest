@@ -2,7 +2,12 @@ class StudentsController < ApplicationController
   before_action :student_find, only: [:show, :edit, :update, :destroy]
 
   def index
+    if params[:search].present?
+      sql_query = "first_name ILIKE :search OR last_name ILIKE :search"
+      @students = current_user.students.where(sql_query, search: "%#{params[:search]}%")
+    else
     @students = current_user.students.all
+    end
   end
 
   def show

@@ -2,6 +2,9 @@
   <h1>All Students</h1>
   <p>Find all your students, edit or delete them and create new ones. There are currently <%= current_user.students.count %> student(s).
   <p> <%= link_to "New student", new_student_path, class: "btn btn-success" %></p>
+  <div class="students-index-search">
+    <%= render 'shared/students_search' %>
+  </div>
   <% @students.each do |student| %>
     <div class="card card-index col-xs-12 col-sm-6">
       <!-- card grid -->
