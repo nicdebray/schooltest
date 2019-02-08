@@ -45,6 +45,6 @@ class CopiesController < ApplicationController
   end
 
   def copy_params
-    params.require(:copy).permit(:student_id, :assignment_id, :user_id, :comment, :grade)
+    params.require(:copy).permit(:student_id, :assignment_id, :user_id, :comment, :grade, :date)
   end
 end
