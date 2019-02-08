@@ -7,6 +7,10 @@
 <%= f.input :description,
             input_html: { autocomplete: "Assignment's description",
             class: 'form-control form-margin-btn'}%>
+
+<%= f.input :date, as: :date, html5: true,
+            input_html: {
+            class: 'form-control form-margin-btn'}%>
 <p>
 <%= f.label :course, class: "assignment_label_course_name" %>
 <%= collection_select :student, :batch_id, current_user.batches , :id, :name, { prompt: true } %>
