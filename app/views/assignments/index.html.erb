@@ -1,7 +1,7 @@
 <div class="container-fluid below-navbar">
   <h1>All Assignments</h1>
   <p>Find all your assignements, edit or delete them and create new ones. There are currently <%= current_user.assignments.count %> assignment(s).</p>
-  <p><%= link_to "New Assignment", assignments_new_path, class: "btn btn-success" %></p>
+  <p><%= link_to "New Assignment", new_assignment_path, class: "btn btn-success" %></p>
     <% @assignments.each do |assignment| %>
       <div class="card card-index col-xs-12 col-sm-6">
         <!-- card grid -->

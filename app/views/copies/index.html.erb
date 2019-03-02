@@ -1,7 +1,7 @@
 <div class="container-fluid below-navbar">
   <h1>All Copies</h1>
   <p>Find all your copies, edit or delete them and create new ones. There are currently <%= current_user.copies.count %> copy(ies).</p>
-  <p><%= link_to "New copy", copies_new_path, class: "btn btn-success" %></p>
+  <p><%= link_to "New copy", new_copy_path, class: "btn btn-success" %></p>
   <% @copies.each do |copy| %>
     <div class="card card-index col-xs-12 col-sm-6">
 
