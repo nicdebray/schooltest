@@ -1,7 +1,7 @@
 <div class="container-fluid below-navbar">
   <h1>All Teachers</h1>
   <p>Find all your teachers, edit or delete them and create new ones. There are currently <%= current_user.teachers.count %> teacher(s).</p>
-  <p><%= link_to "New Teacher", teachers_new_path, class: "btn btn-success" %></p>
+  <p><%= link_to "New Teacher", new_teacher_path, class: "btn btn-success" %></p>
   <% @teachers.each do |teacher| %>
     <div class="card card-index col-xs-12 col-sm-6">
 

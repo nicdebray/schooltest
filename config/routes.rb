@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root to: 'pages#home'
+
   resources :batches do
   end
 
@@ -9,7 +12,6 @@ Rails.application.routes.draw do
   get 'copies/:id/edit', to:'copies#edit', as: :edit_copy
   patch 'copies/:id', to:'copies#update'
   delete 'copies/:id', to:'copies#destroy'
-
 
   get 'assignments', to:'assignments#index'
   get 'assignments/new'
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
   delete 'evaluations/:id', to:'evaluations#destroy'
 
   resources :memberships
+
   resources :courses do
     resources :memberships, only: [:index, :new, :create]
   end
@@ -39,25 +42,6 @@ Rails.application.routes.draw do
     resources :memberships, only: [:index, :new, :create]
   end
 
+  resources :teachers
 
-  get 'teachers', to:'teachers#index'
-  get 'teachers/new'
-  get 'teachers/:id', to:'teachers#show', as: :teacher
-  post 'teachers', to:'teachers#create'
-  get 'teachers/:id/edit', to:'teachers#edit', as: :edit_teacher
-  patch 'teachers/:id', to:'teachers#update'
-  delete 'teachers/:id', to:'teachers#destroy'
-
-
-  # get 'batches', to:'batches#index'
-  # get 'batches/new'
-  # get 'batches/:id', to:'batches#show', as: :batch
-  # post 'batches', to:'batches#create'
-  # get 'batches/:id/edit', to:'batches#edit', as: :edit_batch
-  # patch 'batches/:id', to:'batches#update'
-  # delete 'batches/:id', to:'batches#destroy'
-
-  get 'pages/home'
-
-  root to: 'pages#home'
 end
