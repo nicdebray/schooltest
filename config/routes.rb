@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :batches
   resources :copies
   resources :courses do
-    resources :memberships, only: [:index, :new, :create]
+    resources :memberships, only: [:new, :create]
   end
   resources :memberships
   resources :students do
